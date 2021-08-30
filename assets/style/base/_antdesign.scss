@@ -1,0 +1,29 @@
+.ant-btn {
+  height: auto;
+  border-radius: 5px;
+  padding: 8px 12px;
+  &.ant-btn-primary {
+    background-color: $primary-yellow;
+    border-color: $primary-yellow;
+    color: $primary-dark;
+    font-size: 1rem;
+    font-family: $font-family-roboto !important;
+  }
+  &.ant-btn-secondary {
+    background-color: $primary-yellow;
+    border-color: $primary-yellow;
+    color: $neutral-white;
+    font-size: 1rem;
+    font-family: $font-family-roboto !important;
+    width: 100%;
+  }
+}
+
+.ant-input{
+  background: transparent;
+  height: 46px;
+  border: 1px solid $primary-yellow;
+  color: $neutral-white;
+  outline: none;
+  margin-bottom: 15px;
+}
