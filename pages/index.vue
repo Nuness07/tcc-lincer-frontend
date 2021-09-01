@@ -1,153 +1,162 @@
 <template>
-  <div class="index">
-    <div class="container">
-      <Header />
-      <section class="banner">
-        <div class="banner__left">
-          <h1>
-            A Plataforma que vai te<br>
-            inserir no mundo do<br>
-            audiovisual!
-          </h1>
-          <a-button type="primary" class="btn-primary">
-            Conheça nossos serviços
-          </a-button>
-        </div>
+  <transition name="fade">
+    <div class="index">
+      <div class="container">
+        <Header />
+        <section class="banner">
+          <div class="banner__left">
+            <h1>
+              A Plataforma que vai te<br>
+              inserir no mundo do<br>
+              audiovisual!
+            </h1>
+            <a-button type="primary" class="btn-primary">
+              Conheça nossos serviços
+            </a-button>
+          </div>
 
-        <div class="banner__right">
-          <img src="~/assets/img/banner-img.png" alt="Mundo Audiovisual">
-        </div>
-      </section>
+          <div class="banner__right">
+            <img src="~/assets/img/banner-img.png" alt="Mundo Audiovisual">
+          </div>
+        </section>
 
-      <section class="servicos">
-        <h2 class="subtitle-primary">
-          o que nós oferecemos
-        </h2>
+        <button @click="testLogin">
+          Apertar para logar
+        </button>
+        <button @click="recDados">
+          Apertar para recuperar dados
+        </button>
+        <section class="servicos">
+          <h2 class="subtitle-primary">
+            o que nós oferecemos
+          </h2>
 
-        <div class="servicos__item servicos__item-left servicos__item-aluguel">
-          <h3 class="servicos__item-title">
-            Aluguel de equipamentos
-          </h3>
+          <div class="servicos__item servicos__item-left servicos__item-aluguel">
+            <h3 class="servicos__item-title">
+              Aluguel de equipamentos
+            </h3>
 
-          <p>
-            Você não precisa gastar rios de dinheiro para conseguir um
-            equipamento profissional para levar pra frente seu projeto.
-          </p>
-          <p>
-            Na lincer você pode alugar esses equipamentos por um preço bem mais
-            acessível para uma produção <span>profissional</span>, gastando
-            <span>pouco</span>
-          </p>
-        </div>
-
-        <div class="servicos__item servicos__item-right servicos__item-aluguel">
-          <h3 class="servicos__item-title">
-            Serviços Freelancer
-          </h3>
-
-          <p>
-            Você trabalha com <span>audiovisual</span> e quer fazer algum
-            freela? Nós temos uma plataforma própria para você oferecer seus
-            serviços!
-          </p>
-          <p>
-            Da mesma fora, se você precisa de algo, publique um serviço para a
-            comunidade de freelancers!
-          </p>
-        </div>
-
-        <div class="servicos__item servicos__item-left servicos__item-aluguel">
-          <h3 class="servicos__item-title">
-            Cursos de audiovisual
-          </h3>
-
-          <p>
-            Nós oferecemos cursos de todos os níveis pra você iniciar com o pé
-            direito, ou aprender sobre algo novo!
-          </p>
-          <p>
-            Você tambem pode criar seu próprio curso e publicar na nossa
-            plataforma!
-          </p>
-        </div>
-
-        <div class="servicos__item servicos__item-right servicos__item-aluguel">
-          <h3 class="servicos__item-title">
-            Plataforma própria
-          </h3>
-
-          <p>
-            Nós oferecemos uma plataforma própria para você organizar suas
-            criações e gerenciar seus cursos e equipamentos alugados
-          </p>
-          <p>
-            Além de divulgar seu trabalho pras outras pessoas, você ainda
-            consegue gerenciar os seus projetos!
-          </p>
-        </div>
-      </section>
-    </div>
-
-    <section class="assinatura">
-      <div class="assinatura__left">
-        <h2>
-          Assinatura Lincer<br>
-          Premium
-        </h2>
-      </div>
-      <div class="assinatura__right">
-        <div class="assinatura__right-box">
-          <h2>Principais Beneficios</h2>
-
-          <div class="assinatura__right-box--items">
-            <p>Acesso a vários cursos da nossa plataforma</p>
             <p>
-              Prioridade na criação de serviços e na hora de enviar propostas
+              Você não precisa gastar rios de dinheiro para conseguir um
+              equipamento profissional para levar pra frente seu projeto.
             </p>
-            <p>Aluguel de equipamentos mais em conta</p>
-            <p>Prioridade ao publicar seus cursos</p>
+            <p>
+              Na lincer você pode alugar esses equipamentos por um preço bem mais
+              acessível para uma produção <span>profissional</span>, gastando
+              <span>pouco</span>
+            </p>
           </div>
 
-          <a-button type="primary" class="btn-primary btn-assinante">
-            Quero virar assinante!
-          </a-button>
-        </div>
+          <div class="servicos__item servicos__item-right servicos__item-aluguel">
+            <h3 class="servicos__item-title">
+              Serviços Freelancer
+            </h3>
+
+            <p>
+              Você trabalha com <span>audiovisual</span> e quer fazer algum
+              freela? Nós temos uma plataforma própria para você oferecer seus
+              serviços!
+            </p>
+            <p>
+              Da mesma fora, se você precisa de algo, publique um serviço para a
+              comunidade de freelancers!
+            </p>
+          </div>
+
+          <div class="servicos__item servicos__item-left servicos__item-aluguel">
+            <h3 class="servicos__item-title">
+              Cursos de audiovisual
+            </h3>
+
+            <p>
+              Nós oferecemos cursos de todos os níveis pra você iniciar com o pé
+              direito, ou aprender sobre algo novo!
+            </p>
+            <p>
+              Você tambem pode criar seu próprio curso e publicar na nossa
+              plataforma!
+            </p>
+          </div>
+
+          <div class="servicos__item servicos__item-right servicos__item-aluguel">
+            <h3 class="servicos__item-title">
+              Plataforma própria
+            </h3>
+
+            <p>
+              Nós oferecemos uma plataforma própria para você organizar suas
+              criações e gerenciar seus cursos e equipamentos alugados
+            </p>
+            <p>
+              Além de divulgar seu trabalho pras outras pessoas, você ainda
+              consegue gerenciar os seus projetos!
+            </p>
+          </div>
+        </section>
       </div>
-    </section>
 
-    <section class="box-products">
-      <BoxService
-        class="box-service__item"
-        title="alugar equipamentos"
-        link="/produtos"
-        image="box-service-produtos.png"
-      />
+      <section class="assinatura">
+        <div class="assinatura__left">
+          <h2>
+            Assinatura Lincer<br>
+            Premium
+          </h2>
+        </div>
+        <div class="assinatura__right">
+          <div class="assinatura__right-box">
+            <h2>Principais Beneficios</h2>
 
-      <BoxService
-        class="box-service__item"
-        title="Ver nossos cursos"
-        link="/cursos"
-        image="box-service-cursos.png"
-      />
-    </section>
-    <div class="container">
-      <section class="blog">
-        <h2 class="subtitle-primary">
-          Conheça nosso Blog
-        </h2>
-        <div class="blog__posts">
-          <div v-for="post, index in blogPosts" :key="index" class="blog__posts-post">
-            <BlogPost :post="post" />
+            <div class="assinatura__right-box--items">
+              <p>Acesso a vários cursos da nossa plataforma</p>
+              <p>
+                Prioridade na criação de serviços e na hora de enviar propostas
+              </p>
+              <p>Aluguel de equipamentos mais em conta</p>
+              <p>Prioridade ao publicar seus cursos</p>
+            </div>
+
+            <a-button type="primary" class="btn-primary btn-assinante">
+              Quero virar assinante!
+            </a-button>
           </div>
         </div>
       </section>
-    </div>
 
-    <Footer />
-  </div>
+      <section class="box-products">
+        <BoxService
+          class="box-service__item"
+          title="alugar equipamentos"
+          link="/produtos"
+          image="box-service-produtos.png"
+        />
+
+        <BoxService
+          class="box-service__item"
+          title="Ver nossos cursos"
+          link="/cursos"
+          image="box-service-cursos.png"
+        />
+      </section>
+      <div class="container">
+        <section class="blog">
+          <h2 class="subtitle-primary">
+            Conheça nosso Blog
+          </h2>
+          <div class="blog__posts">
+            <div v-for="post, index in blogPosts" :key="index" class="blog__posts-post">
+              <BlogPost :post="post" />
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <Footer />
+    </div>
+  </transition>
 </template>
 
 <script>
+import AuthService from '@/service/user/auth-service.js'
 export default {
   data () {
     return {
@@ -166,11 +175,32 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    async testLogin () {
+      const res = await AuthService.login({ email: 'testejwt@gmail.com', password: 'senhateste' })
+      this.$cookies.set('x-access-token', res.data.token)
+    },
+    async recDados () {
+      const token = this.$cookies.get('x-access-token')
+      await AuthService.getUser(token)
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.fade-enter-from {
+  opacity: 0;
+}
+
+.fade-enter-to {
+    opacity: 1;
+}
+
+.fade-enter-active{
+  transition: opacity 2s ease;
+}
 .index{
   overflow-x: hidden;
 }
