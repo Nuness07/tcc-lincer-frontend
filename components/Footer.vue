@@ -40,7 +40,7 @@
             Receba nossas novidades
           </h2>
 
-          <a-input v-model="emailNewsletter" placeholder="Digite o seu melhor e-mail :)" />
+          <a-input v-model="emailNewsletter" class="primary" placeholder="Digite o seu melhor e-mail :)" />
           <a-button type="secondary" class="btn-secondary">
             Enviar
           </a-button>

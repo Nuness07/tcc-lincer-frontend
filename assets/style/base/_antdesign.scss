@@ -19,11 +19,27 @@
   }
 }
 
-.ant-input{
+.ant-form-item{
+  margin-bottom: 12px;
+}
+
+.ant-input.primary{
   background: transparent;
   height: 46px;
   border: 1px solid $primary-yellow;
   color: $neutral-white;
   outline: none;
   margin-bottom: 15px;
+}
+.ant-input.secondary{
+  background: transparent;
+  height: 56px;
+  color: $neutral-dark;
+  outline: none;
+  margin-bottom: 15px;
+  margin-bottom: 0;
+}
+
+.ant-form-item-required::before{
+  display: none !important;
 }

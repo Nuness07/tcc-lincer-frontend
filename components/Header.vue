@@ -23,9 +23,11 @@
       </ul>
     </nav>
 
-    <a-button type="primary" class="btn-primary">
-      Plataforma do criador
-    </a-button>
+    <nuxt-link to="/login">
+      <a-button type="primary" class="btn-primary">
+        Plataforma do criador
+      </a-button>
+    </nuxt-link>
   </header>
 </template>
 

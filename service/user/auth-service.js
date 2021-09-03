@@ -4,6 +4,7 @@ const UserAuthorization = {
   login: async (data) => {
     try {
       const res = await api.post('/login', data)
+      console.log('chamou aqui')
       return res
     } catch (err) {
       return err
