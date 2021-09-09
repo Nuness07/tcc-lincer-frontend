@@ -1,56 +1,50 @@
 <template>
-  <transition name="fade">
-    <div class="index">
-      <div class="container">
-        <Header />
-        <section class="banner">
-          <div class="banner__left">
+  <transition name='fade'>
+    <div class='index'>
+      <div class='container'>
+        <section class='banner'>
+          <div class='banner__left'>
             <h1>
-              A Plataforma que vai te<br>
-              inserir no mundo do<br>
+              A Plataforma que vai te<br />
+              inserir no mundo do<br />
               audiovisual!
             </h1>
-            <a-button type="primary" class="btn-primary">
+            <a-button type='primary' class='btn-primary'>
               Conheça nossos serviços
             </a-button>
           </div>
 
-          <div class="banner__right">
-            <img src="~/assets/img/banner-img.png" alt="Mundo Audiovisual">
+          <div class='banner__right'>
+            <img src='~/assets/img/banner-img.png' alt='Mundo Audiovisual' />
           </div>
         </section>
 
-        <button @click="testLogin">
-          Apertar para logar
-        </button>
-        <button @click="recDados">
-          Apertar para recuperar dados
-        </button>
-        <section class="servicos">
-          <h2 class="subtitle-primary">
-            o que nós oferecemos
-          </h2>
+        <button @click='testLogin'>Apertar para logar</button>
+        <button @click='recDados'>Apertar para recuperar dados</button>
+        <section class='servicos'>
+          <h2 class='subtitle-primary'>o que nós oferecemos</h2>
 
-          <div class="servicos__item servicos__item-left servicos__item-aluguel">
-            <h3 class="servicos__item-title">
-              Aluguel de equipamentos
-            </h3>
+          <div
+            class='servicos__item servicos__item-left servicos__item-aluguel'
+          >
+            <h3 class='servicos__item-title'>Aluguel de equipamentos</h3>
 
             <p>
               Você não precisa gastar rios de dinheiro para conseguir um
               equipamento profissional para levar pra frente seu projeto.
             </p>
             <p>
-              Na lincer você pode alugar esses equipamentos por um preço bem mais
-              acessível para uma produção <span>profissional</span>, gastando
+              Na lincer você pode alugar esses equipamentos por um preço bem
+              mais acessível para uma produção <span>profissional</span>,
+              gastando
               <span>pouco</span>
             </p>
           </div>
 
-          <div class="servicos__item servicos__item-right servicos__item-aluguel">
-            <h3 class="servicos__item-title">
-              Serviços Freelancer
-            </h3>
+          <div
+            class='servicos__item servicos__item-right servicos__item-aluguel'
+          >
+            <h3 class='servicos__item-title'>Serviços Freelancer</h3>
 
             <p>
               Você trabalha com <span>audiovisual</span> e quer fazer algum
@@ -63,10 +57,10 @@
             </p>
           </div>
 
-          <div class="servicos__item servicos__item-left servicos__item-aluguel">
-            <h3 class="servicos__item-title">
-              Cursos de audiovisual
-            </h3>
+          <div
+            class='servicos__item servicos__item-left servicos__item-aluguel'
+          >
+            <h3 class='servicos__item-title'>Cursos de audiovisual</h3>
 
             <p>
               Nós oferecemos cursos de todos os níveis pra você iniciar com o pé
@@ -78,10 +72,10 @@
             </p>
           </div>
 
-          <div class="servicos__item servicos__item-right servicos__item-aluguel">
-            <h3 class="servicos__item-title">
-              Plataforma própria
-            </h3>
+          <div
+            class='servicos__item servicos__item-right servicos__item-aluguel'
+          >
+            <h3 class='servicos__item-title'>Plataforma própria</h3>
 
             <p>
               Nós oferecemos uma plataforma própria para você organizar suas
@@ -95,18 +89,18 @@
         </section>
       </div>
 
-      <section class="assinatura">
-        <div class="assinatura__left">
+      <section class='assinatura'>
+        <div class='assinatura__left'>
           <h2>
-            Assinatura Lincer<br>
+            Assinatura Lincer<br />
             Premium
           </h2>
         </div>
-        <div class="assinatura__right">
-          <div class="assinatura__right-box">
+        <div class='assinatura__right'>
+          <div class='assinatura__right-box'>
             <h2>Principais Beneficios</h2>
 
-            <div class="assinatura__right-box--items">
+            <div class='assinatura__right-box--items'>
               <p>Acesso a vários cursos da nossa plataforma</p>
               <p>
                 Prioridade na criação de serviços e na hora de enviar propostas
@@ -115,70 +109,78 @@
               <p>Prioridade ao publicar seus cursos</p>
             </div>
 
-            <a-button type="primary" class="btn-primary btn-assinante">
+            <a-button type='primary' class='btn-primary btn-assinante'>
               Quero virar assinante!
             </a-button>
           </div>
         </div>
       </section>
 
-      <section class="box-products">
+      <section class='box-products'>
         <BoxService
-          class="box-service__item"
-          title="alugar equipamentos"
-          link="/produtos"
-          image="box-service-produtos.png"
+          class='box-service__item'
+          title='alugar equipamentos'
+          link='/produtos'
+          image='box-service-produtos.png'
         />
 
         <BoxService
-          class="box-service__item"
-          title="Ver nossos cursos"
-          link="/cursos"
-          image="box-service-cursos.png"
+          class='box-service__item'
+          title='Ver nossos cursos'
+          link='/cursos'
+          image='box-service-cursos.png'
         />
       </section>
-      <div class="container">
-        <section class="blog">
-          <h2 class="subtitle-primary">
-            Conheça nosso Blog
-          </h2>
-          <div class="blog__posts">
-            <div v-for="post, index in blogPosts" :key="index" class="blog__posts-post">
-              <BlogPost :post="post" />
+      <div class='container'>
+        <section class='blog'>
+          <h2 class='subtitle-primary'>Conheça nosso Blog</h2>
+          <div class='blog__posts'>
+            <div
+              v-for='(post, index) in blogPosts'
+              :key='index'
+              class='blog__posts-post'
+            >
+              <BlogPost :post='post' />
             </div>
           </div>
         </section>
       </div>
-
-      <Footer />
     </div>
   </transition>
 </template>
 
 <script>
 import AuthService from '@/service/user/auth-service.js'
+
 export default {
+  layout: 'notLogged',
   data () {
     return {
       blogPosts: [
         {
           title: 'Título do post 1',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas imperdiet. Donec felis erat, maximus ut viverra ac, convallis id nibh. Etiam...'
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas imperdiet. Donec felis erat, maximus ut viverra ac, convallis id nibh. Etiam...'
         },
         {
           title: 'Título do post 2',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas imperdiet. Donec felis erat, maximus ut viverra ac, convallis id nibh. Etiam...'
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas imperdiet. Donec felis erat, maximus ut viverra ac, convallis id nibh. Etiam...'
         },
         {
           title: 'Título do post 3',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas imperdiet. Donec felis erat, maximus ut viverra ac, convallis id nibh. Etiam...'
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas imperdiet. Donec felis erat, maximus ut viverra ac, convallis id nibh. Etiam...'
         }
       ]
     }
   },
   methods: {
     async testLogin () {
-      const res = await AuthService.login({ email: 'testejwt@gmail.com', password: 'senhateste' })
+      const res = await AuthService.login({
+        email: 'testejwt@gmail.com',
+        password: 'senhateste'
+      })
       this.$cookies.set('x-access-token', res.data.token)
     },
     async recDados () {
@@ -189,24 +191,20 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 .fade-enter-from {
   opacity: 0;
 }
 
 .fade-enter-to {
-    opacity: 1;
+  opacity: 1;
 }
 
-.fade-enter-active{
+.fade-enter-active {
   transition: opacity 2s ease;
 }
-.index{
+.index {
   overflow-x: hidden;
-}
-.container {
-  max-width: 1242px;
-  margin: 0 auto;
 }
 
 .subtitle-primary {
@@ -327,17 +325,17 @@ export default {
   }
 }
 
-.box-products{
+.box-products {
   display: flex;
 }
 
-.blog{
+.blog {
   margin: 40px 0;
-  &__posts{
+  &__posts {
     display: flex;
     justify-content: center;
 
-    :nth-child(2){
+    :nth-child(2) {
       margin: 0 20px;
     }
   }
