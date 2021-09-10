@@ -52,7 +52,9 @@
 
 <script>
 import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
+
 import "swiper/css/swiper.css";
+
 export default {
   components: {
     Swiper,
@@ -80,6 +82,10 @@ export default {
 .swiper {
   height: 360px;
 
+  @media (min-width: 1500px) {
+    height: 40vh;
+  }
+
   .swiper-slide {
     background-position: center;
     background-size: cover;
@@ -93,7 +99,7 @@ export default {
       font-weight: 500;
       font-size: 42px;
       line-height: 49px;
-      color: #ffffff;
+      color: $neutral-white;
       margin-bottom: 4px;
     }
 
@@ -102,7 +108,7 @@ export default {
       font-weight: 500;
       font-size: 18px;
       line-height: 21px;
-      color: #ffb400;
+      color: $primary-yellow;
       margin-bottom: 24px !important;
     }
 

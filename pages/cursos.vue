@@ -9,11 +9,19 @@
           <p>Assine Lincer Premium para ter acesso a eles gratuitamente</p>
         </div>
 
-        <div class="nossos-cursos__body">
-          <CardCurso v-for="x in 5" :key="x" />
-        </div>
+        <section class="nossos-cursos__body">
+          <CardCurso v-for="x in 4" :key="x" />
+        </section>
       </div>
+
+       <BannerSwiper class="swiper-banner-left" />
     </div>
+
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   </div>
 </template>
 
@@ -60,11 +68,28 @@ export default {
   .nossos-cursos__body {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 30px;
 
     .card-curso {
-      width: calc(100% / 4 - 20px);
-      background: blue;
+      width: calc(100% / 4 - 15px);
     }
+
+    @media (max-width: 1200px) {
+      .card-curso {
+        width: calc(100% / 2 - 8px);
+      }
+    }
+
+     @media (max-width: 576px) {
+      .card-curso {
+        width: 100%;
+      }
+    }
+  }
+
+  .swiper-banner-left {
+    margin-top: 70px;
   }
 }
 </style>
