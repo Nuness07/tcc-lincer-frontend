@@ -6,45 +6,55 @@
           <div class="container">
             <h3>CURSO EM DESTAQUE</h3>
             <p>INICIANDO NO MUNDO AUDIOVISUAL</p>
-            <a-button type="primary">Ver curso</a-button>
+            <a-button type="primary">
+              Ver curso
+            </a-button>
           </div>
         </swiper-slide>
         <swiper-slide class="slide-2">
           <div class="container">
             <h3>CURSO EM DESTAQUE</h3>
             <p>INICIANDO NO MUNDO AUDIOVISUAL</p>
-            <a-button type="primary">Ver curso</a-button>
+            <a-button type="primary">
+              Ver curso
+            </a-button>
           </div>
         </swiper-slide>
         <swiper-slide class="slide-3">
           <div class="container">
             <h3>CURSO EM DESTAQUE</h3>
             <p>INICIANDO NO MUNDO AUDIOVISUAL</p>
-            <a-button type="primary">Ver curso</a-button>
+            <a-button type="primary">
+              Ver curso
+            </a-button>
           </div>
         </swiper-slide>
         <swiper-slide class="slide-4">
           <div class="container">
             <h3>CURSO EM DESTAQUE</h3>
             <p>INICIANDO NO MUNDO AUDIOVISUAL</p>
-            <a-button type="primary">Ver curso</a-button>
+            <a-button type="primary">
+              Ver curso
+            </a-button>
           </div>
         </swiper-slide>
         <swiper-slide class="slide-5">
           <div class="container">
             <h3>CURSO EM DESTAQUE</h3>
             <p>INICIANDO NO MUNDO AUDIOVISUAL</p>
-            <a-button type="primary">Ver curso</a-button>
+            <a-button type="primary">
+              Ver curso
+            </a-button>
           </div>
         </swiper-slide>
         <div
-          class="swiper-button-prev swiper-button-white"
           slot="button-prev"
-        ></div>
+          class="swiper-button-prev swiper-button-white"
+        />
         <div
-          class="swiper-button-next swiper-button-white"
           slot="button-next"
-        ></div>
+          class="swiper-button-next swiper-button-white"
+        />
       </swiper>
     </client-only>
   </div>
@@ -61,7 +71,7 @@ export default {
   directives: {
     swiper: directive,
   },
-  data() {
+  data () {
     return {
       swiperOption: {
         spaceBetween: 30,
