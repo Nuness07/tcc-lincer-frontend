@@ -22,11 +22,7 @@
     "core-js": "^3.15.1",
     "node-sass": "^6.0.1",
     "nuxt": "^2.15.7",
-<<<<<<< HEAD
-    "swiper": "5.4.5",
-=======
     "swiper": "^5.4.5",
->>>>>>> 1e951f544dd16cbe7269de7b9eb1930540107327
     "vue-awesome-swiper": "^4.1.1"
   },
   "devDependencies": {
