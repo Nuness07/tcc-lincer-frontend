@@ -14,14 +14,45 @@
         </section>
       </div>
 
-       <BannerSwiper class="swiper-banner-left" />
-    </div>
+      <BannerSwiper
+        class="swiper-banner-left"
+        titleBanner="Cursos da Comunidade"
+      />
+      <BannerSwiper
+        class="swiper-banner-left"
+        titleBanner="Cursos mais Vendidos"
+        positionBanner="right"
+      />
 
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <section class="container categorys">
+        <h2>Categorias</h2>
+        <div class="categorys__cards">
+          <card-category titleCategory="Infraestrutura">
+            <template slot="icon">
+              <OutlinePuzzleIcon />
+            </template>
+          </card-category>
+
+          <card-category titleCategory="Ferramentas">
+            <template slot="icon">
+              <OutlineCogIcon />
+            </template>
+          </card-category>
+
+          <card-category titleCategory="Roteirização">
+            <template slot="icon">
+              <OutlineDocumentTextIcon />
+            </template>
+          </card-category>
+
+          <card-category titleCategory="Roteirização">
+            <template slot="icon">
+              <OutlineDocumentTextIcon />
+            </template>
+          </card-category>
+        </div>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -81,7 +112,7 @@ export default {
       }
     }
 
-     @media (max-width: 576px) {
+    @media (max-width: 576px) {
       .card-curso {
         width: 100%;
       }
@@ -90,6 +121,50 @@ export default {
 
   .swiper-banner-left {
     margin-top: 70px;
+  }
+}
+
+.categorys {
+  margin-top: 50px;
+  margin-bottom: 32px;
+  text-align: center;
+
+  h2 {
+    font-weight: bold;
+    margin-bottom: 32px;
+  }
+
+  .categorys__cards {
+    display: flex;
+    justify-content: space-between;
+    .card-category {
+      width: calc(100% / 4 - 20px);
+      padding: 48px 0;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    padding: 0 0 0 16px;
+
+    .categorys__cards {
+      display: flex;
+      overflow-x: auto;
+      width: calc(100% - 16px);
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+      scrollbar-width: none; /* Firefox */
+
+      &::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+      }
+      .card-category {
+        width: 33%;
+        min-width: 220px;
+        height: 220px;
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+    }
   }
 }
 </style>

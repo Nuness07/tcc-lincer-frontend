@@ -51,6 +51,7 @@ export default {};
 
 <style lang="scss" scoped>
 .card-curso {
+  width: 100%;
   border-radius: 8px;
   overflow: hidden;
   background: $neutral-white;
