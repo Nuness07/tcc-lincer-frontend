@@ -10,16 +10,22 @@
           <p>Para acessar sua plataforma</p>
         </div>
 
-        <a-form-model
-          ref="formLogin"
-          :model="formLogin"
-          :rules="rules"
-        >
+        <a-form-model ref="formLogin" :model="formLogin" :rules="rules">
           <a-form-model-item prop="email" label="E-mail">
-            <a-input v-model="formLogin.email" type="email" class="secondary" placeholder="criador@lincer.com.br" />
+            <a-input
+              v-model="formLogin.email"
+              type="email"
+              class="secondary"
+              placeholder="criador@lincer.com.br"
+            />
           </a-form-model-item>
           <a-form-model-item prop="password" label="Senha">
-            <a-input v-model="formLogin.password" class="secondary" type="password" placeholder="password" />
+            <a-input
+              v-model="formLogin.password"
+              class="secondary"
+              type="password"
+              placeholder="password"
+            />
           </a-form-model-item>
         </a-form-model>
 
@@ -27,12 +33,10 @@
           Login
         </a-button>
 
-        <p>
-          Ainda não tem cadastro?<span>Clique aqui para cadastrar</span>
-        </p>
-
-        <p v-if="$auth.loggedIn">
-          Logado</o>
+        <p class="signup">
+          Ainda não tem cadastro?<nuxt-link class="to-signup" to="/cadastro">
+            Clique aqui para cadastrar
+          </nuxt-link>
         </p>
       </div>
     </div>
@@ -41,46 +45,49 @@
 
 <script>
 export default {
-  name: 'Login',
+  name: "Login",
   data () {
     return {
       formLogin: {
         email: null,
-        password: null
+        password: null,
       },
       rules: {
-        email: [{ required: true, message: 'E-mail é obrigatório' }, { type: 'email', message: 'O e-mail não é valido' }],
-        password: [{ required: true, message: 'Senha é obrigatorio' }]
-      }
-    }
+        email: [
+          { required: true, message: "E-mail é obrigatório" },
+          { type: "email", message: "O e-mail não é valido" },
+        ],
+        password: [{ required: true, message: "Senha é obrigatorio" }],
+      },
+    };
   },
   methods: {
     async check () {
       await this.$refs.formLogin.validate((valid) => {
         if (valid) {
-          this.login(this.formLogin)
+          this.login(this.formLogin);
         } else {
-          console.log('error submit!!')
-          return false
+          console.log("error submit!!");
+          return false;
         }
-      })
+      });
     },
 
     async login (values) {
       try {
-        await this.$auth.loginWith('local', {
+        await this.$auth.loginWith("local", {
           data: {
             email: values.email,
-            password: values.password
-          }
-        })
-        this.$router.push('/dashboard')
+            password: values.password,
+          },
+        });
+        this.$router.push("/dashboard");
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -100,8 +107,8 @@ export default {
     align-items: center;
     width: 60%;
 
-    &-infos-title{
-      h1{
+    &-infos-title {
+      h1 {
         margin-top: 25px;
         font-size: 2rem;
         color: $primary-yellow;
@@ -113,7 +120,21 @@ export default {
   }
 }
 
-.btn-primary{
+.signup {
+  margin-top: 32px;
+
+    .to-signup {
+      color: $primary-yellow;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        color: $primary-dark;
+      }
+    }
+}
+
+.btn-primary {
   width: 100%;
   height: 56px;
   font-weight: 700;
