@@ -22,8 +22,12 @@
     "core-js": "^3.15.1",
     "node-sass": "^6.0.1",
     "nuxt": "^2.15.7",
+    "nuxt-ssr-screen-size": "^1.0.0",
     "swiper": "^5.4.5",
-    "vue-awesome-swiper": "^4.1.1"
+    "v-mask": "^2.2.4",
+    "vue-awesome-swiper": "^4.1.1",
+    "vue-toastification": "^1.7.11",
+    "vue-viacep": "^1.0.4"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",

@@ -49,4 +49,43 @@ export const mutations = {
       }
     }
   },
+
+  MOUNT_POST_FORM (state) {
+    state.postForm = {
+      email: state.formStepOne.email,
+      senha: state.formStepOne.password,
+      nome: state.formStepOne.name,
+      sobrenome: state.formStepOne.lastname,
+      cpf: state.formStepOne.cpf,
+      cep: state.formStepTwo.cep,
+      uf: state.formStepTwo.uf,
+      city: state.formStepTwo.city,
+      street: state.formStepTwo.street,
+      number: state.formStepTwo.number,
+      complement: state.formStepTwo.complement,
+      foto: "Lorem Ipsum",
+      descricao: null,
+      link_deezer: null,
+      link_facebook: null,
+      link_instagram: null,
+      link_spotify: null,
+      link_youtube: null,
+      link_twitch: null,
+      is_professor: false,
+      is_freelancer: true,
+      is_empresa: false,
+      titulo_profissional: null,
+      descricao_freelancer: null,
+      experiencia_profissional: null,
+      principais_habilidades: null,
+      is_professor_aprovado: false,
+      is_freelancer_aprovado: false,
+      pergunta_professor_1: null,
+      pergunta_professor_2: null,
+      pergunta_professor_3: null,
+      freelancer_verificado: null,
+      cnpj: null,
+      empresa_parceira: false
+    }
+  }
 };

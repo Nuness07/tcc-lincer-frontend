@@ -40,6 +40,10 @@
   margin-bottom: 0;
 }
 
+.ant-input:disabled{
+  background: #ccc;
+}
+
 .ant-form-item-required::before{
   display: none !important;
 }

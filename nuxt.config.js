@@ -34,6 +34,8 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/antd-ui',
+    '@/plugins/vue-viacep',
+    '@/plugins/vue-toastification',
     { src: '@/plugins/vue-awesome-swiper', mode: 'client' }
   ],
 
@@ -65,7 +67,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
     '@nuxtjs/pwa',
-    'cookie-universal-nuxt'
+    'cookie-universal-nuxt',
+    'vue-toastification/nuxt',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

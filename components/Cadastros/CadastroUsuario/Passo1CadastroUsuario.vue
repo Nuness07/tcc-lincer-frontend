@@ -17,11 +17,11 @@
         <a-form-model-item
           has-feedback
           class="form-item__50"
-          prop="sobrenome"
+          prop="lastname"
           label="Sobrenome"
         >
           <a-input
-            v-model="formCadastroPasso1.sobrenome"
+            v-model="formCadastroPasso1.lastname"
             class="secondary"
             placeholder="Sobrenome"
           />
@@ -61,6 +61,7 @@
       <a-form-model-item has-feedback prop="cpf" label="CPF">
         <a-input
           v-model="formCadastroPasso1.cpf"
+          v-mask="`###.###.###-##`"
           class="secondary"
           placeholder="CPF"
         />
@@ -75,6 +76,9 @@
 
 <script>
 import { mapState } from "vuex";
+import Vue from 'vue'
+import VueMask from 'v-mask'
+Vue.use(VueMask)
 export default {
   name: "Passo1CadastroUsuario",
   data () {
@@ -90,17 +94,17 @@ export default {
     return {
       formCadastroPasso1: {
         name: null,
+        lastname: null,
         password: null,
         checkPassword: null,
         email: null,
-        senha: null,
         cpf: null,
       },
       rules: {
         name: [{ required: true, message: "O nome é obrigatório" }],
-        sobrenome: [{ required: true, message: "O sobrenome é obrigatório" }],
-        email: [{ required: true, message: "O e-mail é obrigatório" }],
-        password: [{ required: true, message: "A senha é obrigatória" }],
+        lastname: [{ required: true, message: "O sobrenome é obrigatório" }],
+        email: [{ required: true, message: "O e-mail é obrigatório" }, { type: 'email', message: 'Digite um e-mail válido' }],
+        password: [{ required: true, message: "A senha é obrigatória" }, { min: 3, message: "A senha deve ter mais de 3 caracteres" }],
         cpf: [{ required: true, message: "O CPF é obrigatório" }],
         checkPassword: [{ validator: validatePass, trigger: "change" }],
       },
