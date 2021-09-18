@@ -78,7 +78,8 @@ export default {
 
   auth: {
     strategies: {
-      local: {
+      localUser: {
+        scheme: 'local',
         token: {
           property: 'token',
           global: true,
@@ -92,7 +93,23 @@ export default {
           logout: { url: '/logout', method: 'post' },
           user: { url: '/user', method: 'get' }
         }
-      }
+      },
+      localCompany: {
+        scheme: 'local',
+        token: {
+          property: 'token',
+          global: true,
+          type: ''
+        },
+        user: {
+          property: ''
+        },
+        endpoints: {
+          login: { url: '/company-login', method: 'post', propertyName: 'token' },
+          logout: { url: '/logout', method: 'post' },
+          user: { url: '/user', method: 'get' }
+        }
+      },
     },
     redirect: {
       login: '/login',
