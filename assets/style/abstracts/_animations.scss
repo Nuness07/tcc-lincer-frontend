@@ -1,1 +1,10 @@
 
+.fadeBottom-enter-active,
+.fadeBottom-leave-active {
+    transition: all 0.5s;
+}
+.fadeBottom-enter,
+.fadeBottom-leave-active {
+    opacity: 0;
+    transform: translateY(10px);
+}
