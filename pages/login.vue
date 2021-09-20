@@ -75,7 +75,7 @@ export default {
 
     async login (values) {
       try {
-        await this.$auth.loginWith("local", {
+        await this.$auth.loginWith("localUser", {
           data: {
             email: values.email,
             password: values.password,
