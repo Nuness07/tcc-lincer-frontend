@@ -51,16 +51,20 @@
 
       <div class="details__right">
         <div class="details__top">
-          <OutlineLockClosedIcon />
-          <p>
+          <SolidLockClosedIcon />
+          <p class="p-details__assine">
             Assine nossa plataforma para obter acesso a esse conteúdo e muitos
             outros
           </p>
 
-          <a-button type="primary">ASSINE AGORA</a-button>
+          <a-button class="btn-assine" type="primary">ASSINE AGORA</a-button>
 
           <small>OU</small>
-          <p>Se você ja for assinante, faça login para acessar ao curso</p>
+
+          <p class="p-details__login">
+            Se você ja for assinante, faça login para acessar ao curso
+          </p>
+
           <a-button type="primary">LOGIN</a-button>
         </div>
       </div>
@@ -144,6 +148,10 @@ export default {
     width: calc(40% - 15px);
 
     .details__top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
       background: #fff;
       border-radius: 8px;
       padding: 64px 16px;
@@ -151,6 +159,65 @@ export default {
       svg {
         width: 75px;
         margin: 0 auto;
+        color: $primary-yellow;
+        margin-bottom: 24px;
+      }
+
+      p.p-details__assine {
+        max-width: 340px;
+        margin-bottom: 32px !important;
+        color: #000;
+      }
+
+      p.p-details__login {
+        max-width: 340px;
+        margin-bottom: 24px !important;
+        color: #000;
+      }
+
+      small {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 8px;
+      }
+
+      button {
+        width: 100%;
+
+        &.btn-assine {
+          margin-bottom: 24px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .container {
+      flex-direction: column-reverse;
+    }
+
+    .details__left {
+      width: 100%;
+    }
+
+    .details__right {
+      width: 100%;
+
+      .details__top {
+        max-width: 350px;
+        margin: 0 auto;
+        padding: 32px 16px;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .details__left {
+      .details__left-content {
+        ul {
+          column-count: 1;
+        }
       }
     }
   }
