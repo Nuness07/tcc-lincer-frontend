@@ -1,40 +1,42 @@
 <template>
   <div class="post">
-    <img src="~/assets/img/blog-post-apagar.png">
+    <img src="~/assets/img/blog-post-apagar.png" />
     <h2>{{ post.title }}</h2>
     <p>{{ post.description }}</p>
-    <a-button type="secondary" class="btn-secondary">
-      Ver post
-    </a-button>
+    <a-button type="secondary" class="btn-secondary"> Ver post </a-button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'BlogPost',
+  name: "BlogPost",
   props: {
     post: {
       type: Object,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-.btn-secondary{
+.btn-secondary {
   width: 100% !important;
 }
 
-.post{
-  h2{
+.post {
+  img {
+    max-width: 100%;
+    width: 100%;
+  }
+  h2 {
     margin: 0 !important;
     font-size: 1.75rem;
     font-weight: 700;
     color: $neutral-dark;
   }
 
-  p{
+  p {
     margin: 16px 0;
     font-size: 0.875rem;
   }
