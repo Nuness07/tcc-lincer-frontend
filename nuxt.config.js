@@ -36,7 +36,9 @@ export default {
     '@/plugins/antd-ui',
     '@/plugins/vue-viacep',
     '@/plugins/vue-toastification',
-    { src: '@/plugins/vue-awesome-swiper', mode: 'client' }
+    { src: '@/plugins/modal.js' },
+    { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
+    { src: "~/plugins/vue2-editor", ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -69,6 +71,8 @@ export default {
     '@nuxtjs/pwa',
     'cookie-universal-nuxt',
     'vue-toastification/nuxt',
+    'v-wave/nuxt',
+    'vue2-editor/nuxt'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
