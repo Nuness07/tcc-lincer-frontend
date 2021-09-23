@@ -1,33 +1,33 @@
 <template>
-  <transition name='fade'>
-    <div class='index'>
-      <div class='container'>
-        <section class='banner'>
-          <div class='banner__left'>
+  <transition name="fade">
+    <div class="index">
+      <div class="container">
+        <section class="banner">
+          <div class="banner__left">
             <h1>
               A Plataforma que vai te<br />
               inserir no mundo do<br />
               audiovisual!
             </h1>
-            <a-button type='primary' class='btn-primary'>
+            <a-button type="primary" class="btn-primary">
               Conheça nossos serviços
             </a-button>
           </div>
 
-          <div class='banner__right'>
-            <img src='~/assets/img/banner-img.png' alt='Mundo Audiovisual' />
+          <div class="banner__right">
+            <img src="~/assets/img/banner-img.png" alt="Mundo Audiovisual" />
           </div>
         </section>
 
-        <button @click='testLogin'>Apertar para logar</button>
-        <button @click='recDados'>Apertar para recuperar dados</button>
-        <section class='servicos'>
-          <h2 class='subtitle-primary'>o que nós oferecemos</h2>
+        <button @click="testLogin">Apertar para logar</button>
+        <button @click="recDados">Apertar para recuperar dados</button>
+        <section class="servicos">
+          <h2 class="subtitle-primary">o que nós oferecemos</h2>
 
           <div
-            class='servicos__item servicos__item-left servicos__item-aluguel'
+            class="servicos__item servicos__item-left servicos__item-aluguel"
           >
-            <h3 class='servicos__item-title'>Aluguel de equipamentos</h3>
+            <h3 class="servicos__item-title">Aluguel de equipamentos</h3>
 
             <p>
               Você não precisa gastar rios de dinheiro para conseguir um
@@ -42,9 +42,9 @@
           </div>
 
           <div
-            class='servicos__item servicos__item-right servicos__item-aluguel'
+            class="servicos__item servicos__item-right servicos__item-aluguel"
           >
-            <h3 class='servicos__item-title'>Serviços Freelancer</h3>
+            <h3 class="servicos__item-title">Serviços Freelancer</h3>
 
             <p>
               Você trabalha com <span>audiovisual</span> e quer fazer algum
@@ -58,9 +58,9 @@
           </div>
 
           <div
-            class='servicos__item servicos__item-left servicos__item-aluguel'
+            class="servicos__item servicos__item-left servicos__item-aluguel"
           >
-            <h3 class='servicos__item-title'>Cursos de audiovisual</h3>
+            <h3 class="servicos__item-title">Cursos de audiovisual</h3>
 
             <p>
               Nós oferecemos cursos de todos os níveis pra você iniciar com o pé
@@ -73,9 +73,9 @@
           </div>
 
           <div
-            class='servicos__item servicos__item-right servicos__item-aluguel'
+            class="servicos__item servicos__item-right servicos__item-aluguel"
           >
-            <h3 class='servicos__item-title'>Plataforma própria</h3>
+            <h3 class="servicos__item-title">Plataforma própria</h3>
 
             <p>
               Nós oferecemos uma plataforma própria para você organizar suas
@@ -89,18 +89,18 @@
         </section>
       </div>
 
-      <section class='assinatura'>
-        <div class='assinatura__left'>
+      <section class="assinatura">
+        <div class="assinatura__left">
           <h2>
             Assinatura Lincer<br />
             Premium
           </h2>
         </div>
-        <div class='assinatura__right'>
-          <div class='assinatura__right-box'>
+        <div class="assinatura__right">
+          <div class="assinatura__right-box">
             <h2>Principais Beneficios</h2>
 
-            <div class='assinatura__right-box--items'>
+            <div class="assinatura__right-box--items">
               <p>Acesso a vários cursos da nossa plataforma</p>
               <p>
                 Prioridade na criação de serviços e na hora de enviar propostas
@@ -109,38 +109,38 @@
               <p>Prioridade ao publicar seus cursos</p>
             </div>
 
-            <a-button type='primary' class='btn-primary btn-assinante'>
+            <a-button type="primary" class="btn-primary btn-assinante">
               Quero virar assinante!
             </a-button>
           </div>
         </div>
       </section>
 
-      <section class='box-products'>
+      <section class="box-products">
         <BoxService
-          class='box-service__item'
-          title='alugar equipamentos'
-          link='/produtos'
-          image='box-service-produtos.png'
+          class="box-service__item"
+          title="alugar equipamentos"
+          link="/produtos"
+          image="box-service-produtos.png"
         />
 
         <BoxService
-          class='box-service__item'
-          title='Ver nossos cursos'
-          link='/cursos'
-          image='box-service-cursos.png'
+          class="box-service__item"
+          title="Ver nossos cursos"
+          link="/cursos"
+          image="box-service-cursos.png"
         />
       </section>
-      <div class='container'>
-        <section class='blog'>
-          <h2 class='subtitle-primary'>Conheça nosso Blog</h2>
-          <div class='blog__posts'>
+      <div class="container">
+        <section class="blog">
+          <h2 class="subtitle-primary">Conheça nosso Blog</h2>
+          <div class="blog__posts">
             <div
-              v-for='(post, index) in blogPosts'
-              :key='index'
-              class='blog__posts-post'
+              v-for="(post, index) in blogPosts"
+              :key="index"
+              class="blog__posts-post"
             >
-              <BlogPost :post='post' />
+              <BlogPost :post="post" />
             </div>
           </div>
         </section>
@@ -150,45 +150,45 @@
 </template>
 
 <script>
-import AuthService from '@/service/user/auth-service.js'
+import AuthService from "@/service/user/auth-service.js";
 
 export default {
-  layout: 'notLogged',
-  data () {
+  layout: "notLogged",
+  data() {
     return {
       blogPosts: [
         {
-          title: 'Título do post 1',
+          title: "Título do post 1",
           description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas imperdiet. Donec felis erat, maximus ut viverra ac, convallis id nibh. Etiam...'
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas imperdiet. Donec felis erat, maximus ut viverra ac, convallis id nibh. Etiam...",
         },
         {
-          title: 'Título do post 2',
+          title: "Título do post 2",
           description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas imperdiet. Donec felis erat, maximus ut viverra ac, convallis id nibh. Etiam...'
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas imperdiet. Donec felis erat, maximus ut viverra ac, convallis id nibh. Etiam...",
         },
         {
-          title: 'Título do post 3',
+          title: "Título do post 3",
           description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas imperdiet. Donec felis erat, maximus ut viverra ac, convallis id nibh. Etiam...'
-        }
-      ]
-    }
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas imperdiet. Donec felis erat, maximus ut viverra ac, convallis id nibh. Etiam...",
+        },
+      ],
+    };
   },
   methods: {
-    async testLogin () {
+    async testLogin() {
       const res = await AuthService.login({
-        email: 'testejwt@gmail.com',
-        password: 'senhateste'
-      })
-      this.$cookies.set('x-access-token', res.data.token)
+        email: "testejwt@gmail.com",
+        password: "senhateste",
+      });
+      this.$cookies.set("x-access-token", res.data.token);
     },
-    async recDados () {
-      const token = this.$cookies.get('x-access-token')
-      await AuthService.getUser(token)
-    }
-  }
-}
+    async recDados() {
+      const token = this.$cookies.get("x-access-token");
+      await AuthService.getUser(token);
+    },
+  },
+};
 </script>
 
 <style lang='scss' scoped>
@@ -238,6 +238,31 @@ export default {
       color: $neutral-dark;
     }
   }
+
+  @media (max-width: 1024px) {
+    &__left {
+      h1 {
+        font-size: 2rem;
+        line-height: 40px;
+      }
+    }
+
+    &__right {
+      max-width: 200px;
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    &__left {
+      h1 {
+        font-size: 1.5rem;
+        line-height: 32px;
+      }
+    }
+  }
 }
 
 .servicos {
@@ -265,6 +290,20 @@ export default {
 
       span {
         color: $primary-yellow;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    &__item {
+      &-title {
+        font-size: 1.5rem;
+        line-height: 32px;
+        margin-bottom: 8px;
+      }
+
+      p {
+        font-size: 1rem;
       }
     }
   }
@@ -323,10 +362,64 @@ export default {
       }
     }
   }
+
+  @media (max-width: 1300px) {
+    flex-direction: column;
+    height: auto;
+
+    &__left {
+      width: 100%;
+      height: 280px;
+
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    &__right {
+      width: 100%;
+      height: 280px;
+      padding: 0 24px;
+
+      &-box {
+        margin-left: initial;
+        margin: -150px auto 0 auto;
+
+        p {
+          font-size: 0.875rem;
+        }
+
+        button {
+          margin-top: 16px;
+        }
+      }
+    }
+  }
 }
 
 .box-products {
   display: flex;
+
+  @media (max-width: 1300px) {
+    flex-direction: column;
+
+    .box-service__item::v-deep {
+      width: 100%;
+
+      .box__image {
+        height: 280px;
+        background-position: bottom;
+
+        h2 {
+          font-size: 1.25rem;
+          margin-bottom: 32px;
+        }
+        &:hover {
+          transform: scale(1);
+        }
+      }
+    }
+  }
 }
 
 .blog {
@@ -337,6 +430,17 @@ export default {
 
     :nth-child(2) {
       margin: 0 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__posts {
+      flex-direction: column;
+      overflow: auto;
+
+      :nth-child(2) {
+        margin: 20px 0;
+      }
     }
   }
 }
