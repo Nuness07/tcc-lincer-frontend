@@ -30,6 +30,18 @@
           <a-select-option value="Yiminghe"> yiminghe </a-select-option>
         </a-select>
       </div>
+
+      <div class="equipamentos__cards equipamento--card">
+        <CardEquipamento
+          v-for="(card, index) in 7"
+          :key="index"
+          title="Título do equipamento"
+          fornecedor="Nome do  fornecedor"
+          :img-url="`${require('@/assets/img/banner-bg.png')}`"
+        />
+      </div>
+
+      <a-button class="btn-ver-mais" type="primary">Carregar mais</a-button>
     </section>
   </main>
 </template>
@@ -55,7 +67,7 @@ export default {
 .equipamentos {
   &__parceiros {
     margin-top: 64px;
-    margin-bottom: 64px;
+    margin-bottom: 32px;
 
     h2 {
       font-weight: bold;
@@ -65,52 +77,61 @@ export default {
 
   &__cards {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
 
-    .card-parceiro {
+    .card-parceiro,
+    .card-equipamento {
       width: calc(100% / 4 - 15px);
+      margin-bottom: 32px;
+
+      &:not(:nth-child(4n)) {
+        margin-right: 20px;
+      }
     }
   }
 
   @media (max-width: 1024px) {
-    &__parceiros {
-      padding-left: 0;
-      padding-right: 0;
-      h2 {
-        margin-left: 16px;
-      }
-    }
     &__cards {
-      padding-left: 16px;
-      padding-right: 16px;
-      overflow: auto;
-
-      /* width */
-      &::-webkit-scrollbar {
-        display: none;
-      }
-
-      /* Track */
-      &::-webkit-scrollbar-track {
-        display: none;
-      }
-
-      /* Handle */
-      &::-webkit-scrollbar-thumb {
-        display: none;
-      }
-
-      /* Handle on hover */
-      &::-webkit-scrollbar-thumb:hover {
-        display: none;
-      }
-
-      .card-parceiro {
-        min-width: 280px;
+      .card-parceiro,
+      .card-equipamento {
         width: calc(100% / 3 - 15px);
 
-        &:not(:last-child) {
-          margin-right: 30px;
+        &:not(:nth-child(4n)) {
+          margin-right: initial;
+        }
+
+        &:not(:nth-child(3n)) {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__cards {
+      .card-parceiro,
+      .card-equipamento {
+        width: calc(100% / 2 - 15px);
+
+        &:not(:nth-child(3n)) {
+          margin-right: initial;
+        }
+
+        &:not(:nth-child(2n)) {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    &__cards {
+      .card-parceiro,
+      .card-equipamento {
+        width: 100%;
+
+        &:not(:nth-child(2n)) {
+          margin-right: initial;
         }
       }
     }
@@ -124,7 +145,39 @@ export default {
         width: 200px;
         margin-right: 16px;
       }
+
+      @media (max-width: 992px) {
+        display: flex;
+        justify-content: space-between;
+        .ant-select::v-deep {
+          margin-right: initial;
+          width: calc(100% / 3 - 15px);
+        }
+      }
+
+      @media (max-width: 576px) {
+        flex-direction: column;
+        .ant-select::v-deep {
+          width: 100%;
+
+          &:not(:last-child) {
+            margin-bottom: 32px;
+          }
+        }
+      }
     }
+  }
+
+  .equipamento--card {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  .btn-ver-mais::v-deep {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 280px;
   }
 }
 </style>
