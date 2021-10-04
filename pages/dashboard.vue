@@ -91,7 +91,7 @@
 
           <div v-else class="roteiro__cards">
             <div v-for="roteiro in $auth.user.roteiros" :key="roteiro.id_roteiro" class="roteiro_card">
-              <CardRoteiro :info-road-map-card="roteiro" @openroteiro="openRoteiro(roteiro.id_roteiro)" />
+              <CardRoteiro class="card-roteiro" :info-road-map-card="roteiro" @openroteiro="openRoteiro(roteiro.id_roteiro)" />
             </div>
 
             <div class="roteiro__cards-add">
@@ -301,7 +301,13 @@
           :modal-size="`xl`"
           @on-close="$vm2.close('visualizar-roteiro')"
         >
-          <p>Teste</p>
+          <div class="roteiro-title">
+            <h2 class="roteiro-title__nome">
+              {{ roteiroInfos.nome_roteiro }}
+            </h2>
+
+            <div class="roteiro-texto" v-html="roteiroInfos.texto" />
+          </div>
         </vue-modal-2>
       </client-only>
 
@@ -330,6 +336,8 @@ export default {
         titulo: null,
         texto: null,
       },
+
+      roteiroInfos: {},
 
       loading: false,
 
@@ -408,7 +416,9 @@ export default {
 
     async openRoteiro (value) {
       const roteiro = await UserService.getRoteiro(value);
-      console.log(roteiro);
+      this.roteiroInfos = roteiro.data;
+      console.log('chamou');
+      this.$vm2.open('visualizar-roteiro');
     }
   },
 };
@@ -571,6 +581,7 @@ export default {
   &__cards{
     height: 80%;
     overflow-y: scroll;
+    overflow-x: hidden;
   }
 
   &__cards-add{
@@ -630,5 +641,29 @@ export default {
     }
   }
   }
+}
+
+.card-roteiro{
+  cursor: pointer;
+
+  &:hover{
+    transform: scale(1.03);
+    transition: .3s;
+  }
+}
+
+.roteiro-title__nome{
+  padding: 0 20px;
+  color: $primary-yellow;
+  font-weight: 700;
+}
+
+.roteiro-texto{
+  max-height: 700px;
+  padding: 0 20px;
+  color: $neutral-dark;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-bottom: 20px;
 }
 </style>

@@ -17,8 +17,9 @@ module.exports = {
   // add your custom rules here
   rules: {
     'no-trailing-spaces': 'off',
-    'quotes': 'off',
+    quotes: 'off',
     'comma-dangle': 'off',
-    'semi': 'off'
+    semi: 'off',
+    'vue/no-v-html': 'off',
   }
 }
