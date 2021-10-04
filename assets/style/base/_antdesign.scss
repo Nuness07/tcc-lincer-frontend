@@ -1,7 +1,10 @@
 .ant-btn {
-  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
   border-radius: 5px;
-  padding: 8px 12px;
+  padding: 0 12px;
   &.ant-btn-primary {
     background-color: $primary-yellow;
     border-color: $primary-yellow;
