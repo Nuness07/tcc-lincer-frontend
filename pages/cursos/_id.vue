@@ -42,9 +42,9 @@
           <div class="embed-responsive">
             <iframe
               class="embed-responsive-item"
-              src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
+              src="https://www.youtube.com/embed/sDV_elnWGHg?rel=0"
               allowfullscreen
-            ></iframe>
+            />
           </div>
         </div>
       </div>
@@ -57,7 +57,9 @@
             outros
           </p>
 
-          <a-button class="btn-assine" type="primary">ASSINE AGORA</a-button>
+          <a-button class="btn-assine" type="primary">
+            ASSINE AGORA
+          </a-button>
 
           <small>OU</small>
 
@@ -65,7 +67,11 @@
             Se você ja for assinante, faça login para acessar ao curso
           </p>
 
-          <a-button type="primary">LOGIN</a-button>
+          <nuxt-link class="aa" to="/login">
+            <a-button type="primary">
+              LOGIN
+            </a-button>
+          </nuxt-link>
         </div>
       </div>
     </div>
@@ -221,5 +227,9 @@ export default {
       }
     }
   }
+}
+
+.aa{
+  width: 100%;
 }
 </style>

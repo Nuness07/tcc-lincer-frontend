@@ -50,3 +50,16 @@
 .ant-form-item-required::before{
   display: none !important;
 }
+
+.ant-select, .ant-select-selection{
+  width: 100% !important;
+  min-height: 48px;
+  border-radius: 5px !important;
+  background: transparent !important;
+  display: flex;
+  align-items: center;
+}
+
+textarea.ant-input{
+  background: transparent !important;
+}

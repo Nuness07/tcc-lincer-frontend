@@ -1,7 +1,7 @@
 <template>
   <article class="card-curso">
     <picture>
-      <img src="@/assets/img/box-service-produtos.png" alt="Curso" />
+      <img src="@/assets/img/box-service-produtos.png" alt="Curso">
     </picture>
     <div class="card-curso__body">
       <h3>Título do curso</h3>
@@ -39,8 +39,11 @@
           </div>
         </div>
       </div>
-
-      <a-button type="primary">Acessar curso</a-button>
+      <nuxt-link to="/cursos/curso-teste">
+        <a-button type="primary">
+          Acessar curso
+        </a-button>
+      </nuxt-link>
     </div>
   </article>
 </template>
