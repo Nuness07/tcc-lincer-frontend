@@ -5,8 +5,8 @@
         <section class="banner">
           <div class="banner__left">
             <h1>
-              A Plataforma que vai te<br />
-              inserir no mundo do<br />
+              A Plataforma que vai te<br>
+              inserir no mundo do<br>
               audiovisual!
             </h1>
             <a-button type="primary" class="btn-primary">
@@ -15,19 +15,23 @@
           </div>
 
           <div class="banner__right">
-            <img src="~/assets/img/banner-img.png" alt="Mundo Audiovisual" />
+            <img src="~/assets/img/banner-img.png" alt="Mundo Audiovisual">
           </div>
         </section>
 
-        <button @click="testLogin">Apertar para logar</button>
-        <button @click="recDados">Apertar para recuperar dados</button>
+        <!-- <button @click="testLogin">Apertar para logar</button>
+        <button @click="recDados">Apertar para recuperar dados</button> -->
         <section class="servicos">
-          <h2 class="subtitle-primary">o que nós oferecemos</h2>
+          <h2 class="subtitle-primary">
+            o que nós oferecemos
+          </h2>
 
           <div
             class="servicos__item servicos__item-left servicos__item-aluguel"
           >
-            <h3 class="servicos__item-title">Aluguel de equipamentos</h3>
+            <h3 class="servicos__item-title">
+              Aluguel de equipamentos
+            </h3>
 
             <p>
               Você não precisa gastar rios de dinheiro para conseguir um
@@ -44,7 +48,9 @@
           <div
             class="servicos__item servicos__item-right servicos__item-aluguel"
           >
-            <h3 class="servicos__item-title">Serviços Freelancer</h3>
+            <h3 class="servicos__item-title">
+              Serviços Freelancer
+            </h3>
 
             <p>
               Você trabalha com <span>audiovisual</span> e quer fazer algum
@@ -60,7 +66,9 @@
           <div
             class="servicos__item servicos__item-left servicos__item-aluguel"
           >
-            <h3 class="servicos__item-title">Cursos de audiovisual</h3>
+            <h3 class="servicos__item-title">
+              Cursos de audiovisual
+            </h3>
 
             <p>
               Nós oferecemos cursos de todos os níveis pra você iniciar com o pé
@@ -75,7 +83,9 @@
           <div
             class="servicos__item servicos__item-right servicos__item-aluguel"
           >
-            <h3 class="servicos__item-title">Plataforma própria</h3>
+            <h3 class="servicos__item-title">
+              Plataforma própria
+            </h3>
 
             <p>
               Nós oferecemos uma plataforma própria para você organizar suas
@@ -92,7 +102,7 @@
       <section class="assinatura">
         <div class="assinatura__left">
           <h2>
-            Assinatura Lincer<br />
+            Assinatura Lincer<br>
             Premium
           </h2>
         </div>
@@ -120,7 +130,7 @@
         <BoxService
           class="box-service__item"
           title="alugar equipamentos"
-          link="/produtos"
+          link="/equipamentos"
           image="box-service-produtos.png"
         />
 
@@ -133,7 +143,9 @@
       </section>
       <div class="container">
         <section class="blog">
-          <h2 class="subtitle-primary">Conheça nosso Blog</h2>
+          <h2 class="subtitle-primary">
+            Conheça nosso Blog
+          </h2>
           <div class="blog__posts">
             <div
               v-for="(post, index) in blogPosts"
@@ -154,7 +166,7 @@ import AuthService from "@/service/user/auth-service.js";
 
 export default {
   layout: "notLogged",
-  data() {
+  data () {
     return {
       blogPosts: [
         {
@@ -176,14 +188,14 @@ export default {
     };
   },
   methods: {
-    async testLogin() {
+    async testLogin () {
       const res = await AuthService.login({
         email: "testejwt@gmail.com",
         password: "senhateste",
       });
       this.$cookies.set("x-access-token", res.data.token);
     },
-    async recDados() {
+    async recDados () {
       const token = this.$cookies.get("x-access-token");
       await AuthService.getUser(token);
     },
