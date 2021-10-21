@@ -3,19 +3,23 @@
     <AprovacaoFreelancer v-if="$auth.user.is_freelancer_aprovado && !$auth.user.is_freelancer" />
     <AprovadoFreelancer v-if="$auth.user.is_freelancer_aprovado && $auth.user.is_freelancer" />
     <CadastroFreelancer v-if="!$auth.user.is_freelancer_aprovado && !$auth.user.is_freelancer" />
+
+    <!-- <AprovacaoFreelancer /> -->
+    <!-- <AprovadoFreelancer /> -->
+    <!-- <CadastroFreelancer /> -->
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Dashboard freelancer',
+  name: "Dashboard freelancer",
   layout: 'logged',
-  middleware: 'auth',
-}
+  // middleware: 'auth',
+};
 </script>
 
 <style lang="scss" scoped>
-.dashboard-freelancer{
+.dashboard-freelancer {
   margin-top: 80px;
   margin-left: 36px;
   margin-right: 36px;
