@@ -36,7 +36,7 @@
 }
 .ant-input.secondary{
   background: transparent;
-  height: 56px;
+  height: 48px;
   color: $neutral-dark;
   outline: none;
   margin-bottom: 15px;
@@ -62,4 +62,12 @@
 
 textarea.ant-input{
   background: transparent !important;
+}
+.ant-calendar-picker{
+  width: 100% !important;
+}
+.ant-calendar-picker-input{
+  width: 100% !important;
+  height: 48px;
+  background: transparent;
 }

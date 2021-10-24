@@ -2,11 +2,12 @@
   <div v-if="$auth.user.projetos.length == 0" class="meus-servicos__0">
     <h2>Você ainda não tem nenhum projeto cadastrado!</h2>
     <p>Assim que você publicar seu primeiro projeto, nossos freelancers parceiros enviarão propostas!</p>
-    <a-button v-wave type="primary">
-      Criar primeiro projeto
-      <img src="@/assets/img/icons/icon-add.png" alt="criar novo projeto">
-    </a-button>
-    <pre>{{ $auth.user }}</pre>
+    <nuxt-link to="/meus-servicos/novo-servico">
+      <a-button v-wave type="primary">
+        Criar primeiro projeto
+        <img src="@/assets/img/icons/icon-add.png" alt="criar novo projeto">
+      </a-button>
+    </nuxt-link>
   </div>
 
   <div v-else class="meus-servicos">
@@ -16,13 +17,14 @@
         <img src="@/assets/img/icons/icon-add.png" alt="criar novo projeto">
       </a-button>
     </nuxt-link>
+
     <pre>{{ $auth.user.projetos }}</pre>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Meus serviços',
+  name: 'MeusServicos',
   layout: 'logged',
 }
 </script>
