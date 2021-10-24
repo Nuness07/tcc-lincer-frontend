@@ -1,134 +1,226 @@
 <template>
-  <div class="cadastro-freelancer">
-    <div class="cadastro-freelancer__title">
-      <h2>Cadastro Freelancer</h2>
-      <p>Cadastre-se como freelancer para começar a mostrar o seu trabalho!</p>
+  <div class="cadastro-professor">
+    <div class="coluna-esquerda--container">
+      <div v-if="etapa == 1" class="primeiroes-botes-wrapper">
+        <section>
+          <h3>Compartilhe seu conhecimento</h3>
+          <p>Conte para nós qual a sua experiência dando aula ou ensinando outras pessoas:</p>
+        </section>
+
+        <button
+          class="w100"
+          @click="
+            proximaEtapa();
+            formCadastroProfessor.pergunta_professor_1 =
+              'Pessoalmente, de maneira informal';
+          "
+        >
+          Pessoalmente, de maneira informal
+        </button>
+        <button
+          class="w100"
+          @click="
+            proximaEtapa();
+            formCadastroProfessor.pergunta_professor_1 =
+              'Pessoalmente, de maneira profissional';
+          "
+        >
+          Pessoalmente, de maneira profissional
+        </button>
+        <button
+          class="w100"
+          @click="
+            proximaEtapa();
+            formCadastroProfessor.pergunta_professor_1 =
+              'Online';
+          "
+        >
+          Online
+        </button>
+        <button
+          class="w100"
+          @click="
+            proximaEtapa();
+            formCadastroProfessor.pergunta_professor_1 = 'Outro';
+          "
+        >
+          Outro
+        </button>
+      </div>
     </div>
+    <div class="coluna-esquerda--container">
+      <div v-if="etapa == 2" class="primeiroes-botes-wrapper">
+        <section>
+          <h3>Qual sua experiência em cursos online?</h3>
+          <p>Esperamos que você nos diga o quanto você sabe sobre criar cursos online para as outras pessoas</p>
+        </section>
 
-    <a-form-model ref="formCadastroFreelancer" class="cadastro-freelancer__form" :model="formCadastroFreelancer" :rules="rules">
-      <a-form-model-item has-feedback prop="titulo_profissional" label="Título Profissional">
-        <a-select default-value="Especialista em Audiovisual" style="width: 120px" @change="handleTituloProfissional">
-          <a-select-option value="Especialista em Audiovisual">
-            Especialista em Audiovisual
-          </a-select-option>
-          <a-select-option value="Especialista em Infraestrutura">
-            Especialista em Infraestrutura
-          </a-select-option>
-          <a-select-option value="Roteirista">
-            Roteirista
-          </a-select-option>
-          <a-select-option value="Editor">
-            Editor de Vídeos
-          </a-select-option>
-          <a-select-option value="Designer">
-            Designer
-          </a-select-option>
-          <a-select-option value="Sonoplasta">
-            Designer
-          </a-select-option>
-          <a-select-option value="outro">
-            Outro
-          </a-select-option>
-        </a-select>
-      </a-form-model-item>
+        <button
+          class="w100"
+          @click="
+            proximaEtapa();
+            formCadastroProfessor.pergunta_professor_2 =
+              'Sou Novato';
+          "
+        >
+          Sou Novato
+        </button>
+        <button
+          class="w100"
+          @click="
+            proximaEtapa();
+            formCadastroProfessor.pergunta_professor_2 =
+              'Tenho certo conhecimento do assunto';
+          "
+        >
+          Tenho certo conhecimento do assunto
+        </button>
+        <button
+          class="w100"
+          @click="
+            proximaEtapa();
+            formCadastroProfessor.pergunta_professor_2 =
+              'Sou Experiente';
+          "
+        >
+          Sou Experiente
+        </button>
+        <button
+          class="w100"
+          @click="
+            proximaEtapa();
+            formCadastroProfessor.pergunta_professor_2 = 'Tenho videos prontos para upload';
+          "
+        >
+          Tenho videos prontos para upload
+        </button>
 
-      <a-form-model-item v-if="titulo_is_outro" prop="titulo_profissional_outro" label="Digite aqui seu título profissional">
-        <a-input
-          v-model="formCadastroFreelancer.titulo_profissional"
-          type="text"
-          class="secondary"
-          placeholder="Ex: Editor de vídeos"
-        />
-      </a-form-model-item>
+        <a-button class="btn-voltar-etapa" type="primary" @click="voltarEtapa()">
+          Voltar
+        </a-button>
+      </div>
+    </div>
+    <div class="coluna-esquerda--container">
+      <div v-if="etapa == 3" class="primeiroes-botes-wrapper">
+        <section>
+          <h3>Amplie seu alcance</h3>
+          <p>Conte para nós se você ja é conhecido nesse mundo ou se está iniciando agora:</p>
+        </section>
 
-      <a-form-model-item
-        has-feedback
-        prop="experiencia_profissional"
-        label="Experiência Profissional"
-      >
-        <a-input
-          v-model="formCadastroFreelancer.experiencia_profissional"
-          type="textarea"
-          allow-clear
-          class="secondary"
-          :auto-size="{ minRows: 5, maxRows: 15 }"
-          placeholder="Descreva o que você ja fez na sua carreira"
-        />
-      </a-form-model-item>
+        <button
+          class="w100"
+          @click="
+            proximaEtapa();
+            formCadastroProfessor.pergunta_professor_3 =
+              'Estou iniciando agora';
+          "
+        >
+          Estou iniciando agora
+        </button>
+        <button
+          class="w100"
+          @click="
+            proximaEtapa();
+            formCadastroProfessor.pergunta_professor_3 =
+              'Tenho uma pequena base de seguidores';
+          "
+        >
+          Tenho uma pequena base de seguidores
+        </button>
+        <button
+          class="w100"
+          @click="
+            proximaEtapa();
+            formCadastroProfessor.pergunta_professor_3 = 'Tenho uma base considerável de seguidores';
+          "
+        >
+          Tenho uma base considerável de seguidores
+        </button>
 
-      <a-form-model-item has-feedback prop="principais_habilidades" label="Principais Habilidades">
-        <a-select class="select-tags" mode="tags" style="width: 100%" :token-separators="[',']" @change="handlePrincipaisHabilidades">
-          <a-select-option v-for="habilidade in habilidades" :key="habilidade.nome">
-            {{ habilidade.nome }}
-          </a-select-option>
-        </a-select>
-      </a-form-model-item>
+        <a-button class="btn-voltar-etapa" type="primary" @click="voltarEtapa()">
+          Voltar
+        </a-button>
+      </div>
+    </div>
+    <div class="coluna-esquerda--container">
+      <div v-if="etapa == 4" class="primeiroes-botes-wrapper">
+        <section>
+          <h3>Você confirma todas as suas respostas?</h3>
+        </section>
 
-      <a-button class="btn-send-freelancer" type="primary">
-        Enviar para aprovação
-      </a-button>
-    </a-form-model>
+        <p class="resposta-dada">
+          Sua experiencia dando aula: {{ formCadastroProfessor.pergunta_professor_1 }}
+        </p>
+        <p class="resposta-dada">
+          Sua experiencia em cursos online: {{ formCadastroProfessor.pergunta_professor_2 }}
+        </p>
+        <p class="resposta-dada">
+          Sua comunidade: {{ formCadastroProfessor.pergunta_professor_3 }}
+        </p>
+
+        <div class="botoes-wrapper">
+          <a-button class="btn-voltar-etapa" type="primary" @click="voltarFirstEtapa()">
+            Responder novamente
+          </a-button>
+          <a-button class="btn-confirmarCadastro" type="primary" @click="confirmarCadastro()">
+            confirmarCadastro
+          </a-button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import UserService from '~/service/user/user-service';
 export default {
-  name: 'CadastroFreelancer',
+  name: 'CadastroProfessor',
   data () {
     return {
-      formCadastroFreelancer: {
-        titulo_profissional: 'Especialista em Audiovisual',
-        experiencia_profissional: null,
+      formCadastroProfessor: {
+        pergunta_professor_1: null,
+        pergunta_professor_2: null,
+        pergunta_professor_3: null,
       },
-      titulo_is_outro: false,
 
-      habilidades: [
-        {
-          nome: 'Photoshop'
-        },
-        {
-          nome: 'VFX'
-        },
-        {
-          nome: 'Infraestrutura'
-        },
-        {
-          nome: 'Sonoplastia'
-        },
-        {
-          nome: 'Adobe Illustrator'
-        },
-        {
-          nome: 'Ilustrador'
-        },
-        {
-          nome: 'Pacote Adobe'
-        },
-      ]
+      etapa: 1,
     }
   },
   methods: {
-    handleTituloProfissional (value) {
-      if (value === 'outro') {
-        this.formCadastroFreelancer.titulo_profissional = '';
-        this.titulo_is_outro = true;
-      } else {
-        this.formCadastroFreelancer.titulo_profissional = value;
-        this.titulo_is_outro = false;
+    proximaEtapa () {
+      this.etapa = this.etapa + 1;
+    },
+
+    voltarEtapa () {
+      this.etapa = this.etapa - 1;
+    },
+    voltarFirstEtapa () {
+      this.etapa = 1;
+    },
+
+    confirmarCadastro () {
+      const data = {
+        pergunta_professor_1: this.formCadastroProfessor.pergunta_professor_1,
+        pergunta_professor_2: this.formCadastroProfessor.pergunta_professor_2,
+        pergunta_professor_3: this.formCadastroProfessor.pergunta_professor_3,
+        is_professor: true
       }
+
+      UserService.editarUser(this.$auth.user.id_usuario, data);
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.cadastro-freelancer{
+.cadastro-professor{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   max-width: 800px;
   margin: 0 auto;
+  height: 100vh;
 
   &__title{
     h2{
@@ -141,21 +233,69 @@ export default {
       text-align: center;
     }
   }
-
-  &__form{
-    width: 100%;
-  }
 }
 
-.select-tags .ant-select-selection{
-    height: auto !important;
-  }
-
-.select-tags.ant-select{
-  height: auto !important;
+.primeiroes-botes-wrapper h3 {
+  color: #191f23;
+  font-weight: 300;
+  font-size: 22px;
+}
+.w100{
+  width: 100%;
 }
 
-.btn-send-freelancer{
-  margin-top: 40px;
+.primeiroes-botes-wrapper p {
+  color: #818488;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0.25px;
+  margin-top: 8px;
+}
+
+.primeiroes-botes-wrapper button {
+  padding: 18px 0 17px;
+  background: #FFF;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 21px;
+  color: #63666a;
+  letter-spacing: 0.25px;
+}
+
+.primeiroes-botes-wrapper button:hover {
+  cursor: pointer;
+  background: $primary-yellow;
+  color: #fff;
+  transition: all 0.25s ease;
+}
+
+.btn-voltar-etapa{
+    background-color: $primary-yellow;
+    border-color: $primary-yellow;
+    color: $primary-dark;
+    font-size: 1rem;
+    font-family: $font-family-roboto !important;
+    width: 200px;
+    margin-top: 20px;
+}
+
+.resposta-dada{
+  margin-bottom: 15px !important;
+  font-size: 1.125rem !important;
+}
+
+.botoes-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-confirmarCadastro{
+  margin-bottom: 0 !important;
+  background: $primary-yellow !important;
+  padding: 18px 20px 17px !important;
 }
 </style>

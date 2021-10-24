@@ -5,9 +5,11 @@
         <h2>Olá, Gabriel!</h2>
         <p>Bem-vindo a sua plataforma de freelancer</p>
       </div>
-      <a class="aprovado-freelancer__back-dash" v-wave href="#"
-        ><OutlineArrowLeftIcon /> Voltar ao dashboard do usuário</a
-      >
+      <a
+        v-wave
+        class="aprovado-freelancer__back-dash"
+        href="#"
+      ><OutlineArrowLeftIcon /> Voltar ao dashboard do usuário</a>
     </div>
 
     <div class="aprovado-freelancer__cards aprovadas">
@@ -15,7 +17,9 @@
       <div class="aprovado-freelancer__white">
         <div class="aprovado-freelancer__sem-propostas">
           <h4>Você ainda não possui nenhumas proposta aceita</h4>
-          <a-button type="primary">Ver projetos</a-button>
+          <a-button type="primary">
+            Ver projetos
+          </a-button>
         </div>
       </div>
     </div>
@@ -25,7 +29,9 @@
       <div class="aprovado-freelancer__white">
         <div class="aprovado-freelancer__sem-propostas">
           <h4>Você ainda não possui nenhumas proposta aceita</h4>
-          <a-button type="primary">Ver projetos</a-button>
+          <a-button type="primary">
+            Ver projetos
+          </a-button>
         </div>
       </div>
     </div>

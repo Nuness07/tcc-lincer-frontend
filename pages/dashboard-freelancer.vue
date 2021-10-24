@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-freelancer">
-    <AprovacaoFreelancer v-if="$auth.user.is_freelancer_aprovado && !$auth.user.is_freelancer" />
+    <AprovacaoFreelancer v-if="!$auth.user.is_freelancer_aprovado && $auth.user.is_freelancer" />
     <AprovadoFreelancer v-if="$auth.user.is_freelancer_aprovado && $auth.user.is_freelancer" />
     <CadastroFreelancer v-if="!$auth.user.is_freelancer_aprovado && !$auth.user.is_freelancer" />
 
