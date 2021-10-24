@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$auth.user.projetos.length == 0" class="meus-servicos__0">
+  <div v-if="projetos.length == 0" class="meus-servicos__0">
     <h2>Você ainda não tem nenhum projeto cadastrado!</h2>
     <p>Assim que você publicar seu primeiro projeto, nossos freelancers parceiros enviarão propostas!</p>
     <nuxt-link to="/meus-servicos/novo-servico">
@@ -18,7 +18,11 @@
       </a-button>
     </nuxt-link>
 
-    <pre>{{ $auth.user.projetos }}</pre>
+    <div class="meus-servicos__wrapper">
+      <div v-for="projeto, index in projetos" :key="index" class="meus-servicos__card">
+        <CardProjetoPublicado :projeto="projeto" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -26,6 +30,19 @@
 export default {
   name: 'MeusServicos',
   layout: 'logged',
+  data () {
+    return {
+      projetos: []
+    }
+  },
+  mounted () {
+    this.getProjetos()
+  },
+  methods: {
+    getProjetos () {
+      this.projetos = this.$auth.user.projetos
+    }
+  }
 }
 </script>
 
@@ -70,4 +87,13 @@ export default {
       column-gap: 12px;
       margin-top: 30px;
     }
+
+.meus-servicos__wrapper{
+  margin-top: 50px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  row-gap: 24px;
+}
 </style>

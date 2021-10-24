@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Meus cursos',
+  name: 'MeusCursos',
   layout: 'logged',
 }
 </script>

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Meus equipamentos',
+  name: 'MeusEquipamentos',
   layout: 'logged',
 }
 </script>

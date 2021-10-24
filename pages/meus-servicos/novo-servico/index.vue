@@ -112,6 +112,7 @@ export default {
         arquivos: 'arquivos',
         valor: null,
         prazo: null,
+        impulso: false
       },
 
       categorias_projeto: [],
@@ -184,21 +185,24 @@ export default {
         if (valid) {
           const projeto = {
             nome_projeto: this.formCadastroProjeto.titulo,
+            descricao: this.formCadastroProjeto.descricao,
             habilidades_desejadas: this.formCadastroProjeto.habilidades_desejadas,
             arquivos: 'arquivos',
             prazo: this.formCadastroProjeto.prazo,
             preco: this.formCadastroProjeto.valor,
             id_contratante: this.$auth.user.id_usuario,
+            aprovado: false,
+            impulso: this.formCadastroProjeto.impulso,
             id_categoria_projeto: this.formCadastroProjeto.categoria
           }
 
-          projetosService.cadastrarProjeto(projeto)
+          projetosService.cadastrarProjeto(projeto).then((i) => {
+            this.$toast.success("Projeto criado e enviado para análise!", {
+              timeout: 2000
+            })
 
-          this.$toast.success("Projeto criado e enviado para análise!", {
-            timeout: 2000
+            this.$router.push({ path: '/meus-servicos' })
           })
-
-          this.$router.push({ path: '/meus-servicos' })
         } else {
           console.log("error submit!!");
           return false;

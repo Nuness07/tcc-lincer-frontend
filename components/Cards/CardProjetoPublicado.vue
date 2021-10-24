@@ -1,97 +1,136 @@
 <template>
-  <article class="card-projeto-publicado">
-    <h2>Título do serviço</h2>
+  <nuxt-link
+    :to="`/meus-servicos/${projeto.id_projeto}`"
+    class="card-projeto-publicado"
+  >
+    <article>
+      <h2>{{ title }}</h2>
+      <p class="projeto-publicado__desc">
+        {{ description }}
+      </p>
 
-    <p>
-      Descrição do serviço
-    </p>
+      <div class="card-projeto-publicaco__infos">
+        <p class="card-projeto__preco">
+          {{ projeto.preco }}
+        </p>
 
-    <div class="card-projeto-publicaco__infos">
-      <p>R$ 2000</p>
-    </div>
-  </article>
+        <div class="card-projeto__aprovacoes">
+          <div v-if="projeto.aprovado" class="card-projeto__aprovacao card-projeto__aprovado">
+            <div class="card-projeto__aprovacao-detail" />
+            <p>Aprovado</p>
+          </div>
+          <div v-else class="card-projeto__aprovacao card-projeto__analise">
+            <div class="card-projeto__aprovacao-detail" />
+            <p>Em análise</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </nuxt-link>
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'CardProjetoPublicado',
+  props: {
+    projeto: {
+      type: Object,
+      required: true,
+    },
+  },
+  data () {
+    return {
+      title: null,
+      description: null,
+    }
+  },
+  mounted () {
+    this.handlerTitle()
+    this.handlerDescription()
+  },
+  methods: {
+    handlerDescription () {
+      if (this.projeto.descricao.length > 180) {
+        this.description = this.projeto.descricao.substring(0, 150) + '...'
+      } else {
+        this.description = this.projeto.descricao
+      }
+    },
+    handlerTitle () {
+      if (this.projeto.nome.length > 30) {
+        this.title = this.projeto.nome.substring(0, 30) + '...'
+      } else {
+        this.title = this.projeto.nome
+      }
+    },
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-.card-curso {
-  width: 100%;
-  border-radius: 8px;
-  overflow: hidden;
-  background: $neutral-white;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  transition: all 0.3s;
+.card-projeto-publicado{
+  background: #FFF;
+  display: flex;
+  width: 375px;
+  padding: 15px 10px;
+  border-radius: 4px;
+  transition: .3s transform;
 
-  picture {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 56.25%;
-
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+  &:hover{
+    transform: scale(1.05);
   }
 
-  .card-curso__body {
-    padding: 8px 16px;
-    h3 {
-      margin-top: 8px;
-      margin-bottom: 16px;
-      font-weight: bold;
-    }
-
-    .card-curso__itens {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      .card-curso__item {
-        width: calc(100% / 2 - 8px);
-        display: flex;
-        align-items: center;
-
-        &:nth-child(1),
-        &:nth-child(2) {
-          margin-bottom: 16px;
-        }
-
-        .card-curso__right {
-          margin-left: 8px;
-          small {
-            display: block;
-            color: $primary-yellow;
-            margin-bottom: 0px;
-            font-size: 12px;
-          }
-
-          p {
-            font-size: 14px;
-          }
-        }
-
-        svg {
-          width: 20px;
-          color: $primary-yellow;
-        }
-      }
-    }
-
-    button {
-      width: 100%;
-      margin-top: 16px;
-    }
+  h2{
+    color: $primary-yellow;
+    font-size: 1.125rem;
+    font-weight: 600;
   }
+}
 
-  &:hover {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 10px;
+.projeto-publicado__desc{
+  color: $secondary-dark;
+  font-size: 1rem;
+  height: 100px;
+}
+
+.card-projeto__preco{
+  color: $secondary-dark;
+  font-weight: 700;
+}
+
+.card-projeto-publicaco__infos{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.card-projeto__aprovacao{
+  color: $secondary-dark;
+  padding: 5px 15px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 8px;
+
+  p{
+    font-size: 0.75rem !important;
+    margin-bottom: 0 !important;
   }
+}
+
+.card-projeto__aprovado{
+  background: $alert-success;
+}
+.card-projeto__analise{
+  background: $alert-warning;
+}
+
+.card-projeto__aprovacao-detail{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FFF;
 }
 </style>
