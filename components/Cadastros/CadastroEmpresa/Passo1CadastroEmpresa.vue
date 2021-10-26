@@ -3,9 +3,9 @@
     <a-form-model ref="formCadastro" :model="formCadastroPasso1" :rules="rules">
       <a-form-model-item has-feedback prop="nome" label="Nome">
         <a-input
-          v-model="formCadastroPasso1.nome"
+          v-model="formCadastroPasso1.name"
           class="secondary"
-          placeholder="Seu e-mail"
+          placeholder="Nome da empresa"
         />
       </a-form-model-item>
       <a-form-model-item has-feedback prop="email" label="E-mail">
@@ -92,17 +92,17 @@ export default {
     };
   },
   computed: {
-    ...mapState(["cadastroUsuario"]),
+    ...mapState(["cadastroEmpresa"]),
   },
   methods: {
     async check () {
       await this.$refs.formCadastro.validate((valid) => {
         if (valid) {
-          this.$store.commit('cadastroUsuario/SET_FORM_STEP', [
+          this.$store.commit('cadastroEmpresa/SET_FORM_STEP', [
             'formStepOne',
             this.formCadastroPasso1,
           ])
-          this.$store.commit('cadastroUsuario/CHANGE_STEP', 'next')
+          this.$store.commit('cadastroEmpresa/CHANGE_STEP', 'next')
         } else {
           console.log("error submit!!");
           return false;

@@ -14,7 +14,7 @@
         </div>
 
         <p class="signup">
-          Ja possui cadastro?<nuxt-link class="to-signup" to="/login">
+          Ja possui cadastro?<nuxt-link class="to-signup" to="/login-empresa">
             Clique aqui para fazer login
           </nuxt-link>
         </p>

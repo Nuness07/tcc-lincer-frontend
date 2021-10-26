@@ -59,7 +59,7 @@
 import { mapState } from "vuex";
 import Vue from "vue";
 import VueMask from "v-mask";
-import UserService from '@/service/user/user-service.js';
+import CompanyService from '@/service/empresa/empresa-service.js';
 Vue.use(VueMask);
 export default {
   name: "Passo1CadastroUsuario",
@@ -109,11 +109,13 @@ export default {
           ])
           this.$store.commit('cadastroEmpresa/MOUNT_POST_FORM')
 
-          this.cadastrarUser();
+          this.cadastrarEmpresa().then((data) => {
+            this.$toast.success("Usuário cadastrado com sucesso", {
+              timeout: 2000
+            })
 
-          this.$toast.success("Usuário cadastrado com sucesso", {
-            timeout: 2000
-          })
+            this.$router.push("/login-empresa")
+          });
         } else {
           console.log("error submit!!");
           return false;
@@ -121,9 +123,9 @@ export default {
       });
     },
 
-    async cadastrarUser () {
-      const user = await UserService.cadastrar(this.cadastroEmpresa.postForm);
-      console.log(user);
+    async cadastrarEmpresa () {
+      const company = await CompanyService.cadastrar(this.cadastroEmpresa.postForm);
+      console.log(company);
     }
   },
 };

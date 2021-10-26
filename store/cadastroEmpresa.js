@@ -55,7 +55,6 @@ export const mutations = {
       email: state.formStepOne.email,
       senha: state.formStepOne.password,
       nome: state.formStepOne.name,
-      sobrenome: state.formStepOne.lastname,
       cep: state.formStepTwo.cep,
       uf: state.formStepTwo.uf,
       city: state.formStepTwo.city,
@@ -63,7 +62,7 @@ export const mutations = {
       number: state.formStepTwo.number,
       complement: state.formStepTwo.complement,
       cnpj: state.formStepOne.cnpj,
-      telefone: state.formStepOne.telefone
+      telefone: '11979999999'
     }
   }
 };
