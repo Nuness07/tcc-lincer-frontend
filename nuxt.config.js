@@ -109,9 +109,9 @@ export default {
           property: ''
         },
         endpoints: {
-          login: { url: '/company-login', method: 'post', propertyName: 'token' },
-          logout: { url: '/logout', method: 'post' },
-          user: { url: '/user', method: 'get' }
+          login: { url: '/login-company', method: 'post', propertyName: 'token' },
+          logout: { url: '/logout-company', method: 'post' },
+          user: { url: '/user-company', method: 'get' }
         }
       },
     },
