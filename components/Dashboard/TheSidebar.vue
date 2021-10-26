@@ -14,21 +14,26 @@
         </the-sidebar-link>
       </a-menu-item>
       <a-menu-item key="3" :style="{ padding: '0' }">
+        <the-sidebar-link text="Serviços" slug="/servicos">
+          <OutlineCogIcon />
+        </the-sidebar-link>
+      </a-menu-item>
+      <a-menu-item key="4" :style="{ padding: '0' }">
         <the-sidebar-link text="Cursos" slug="/meus-cursos">
           <OutlineBookOpenIcon />
         </the-sidebar-link>
       </a-menu-item>
-      <a-menu-item key="4" :style="{ padding: '0' }">
+      <a-menu-item key="5" :style="{ padding: '0' }">
         <the-sidebar-link text="Serviços" slug="/meus-servicos">
           <OutlineUserGroupIcon />
         </the-sidebar-link>
       </a-menu-item>
-      <a-menu-item key="5" :style="{ padding: '0' }">
+      <a-menu-item key="6" :style="{ padding: '0' }">
         <the-sidebar-link text="Dashboard Professor" slug="/dashboard-professor">
           <SolidAcademicCapIcon />
         </the-sidebar-link>
       </a-menu-item>
-      <a-menu-item key="6" :style="{ padding: '0' }">
+      <a-menu-item key="7" :style="{ padding: '0' }">
         <the-sidebar-link text="Dashboard Freelancer" slug="/dashboard-freelancer">
           <OutlineUserIcon />
         </the-sidebar-link>
