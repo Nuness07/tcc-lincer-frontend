@@ -1,14 +1,12 @@
 <template>
   <header class="header">
     <div class="header__logo">
-      <img src="~/assets/img/logo.svg" alt="logo">
+      <img src="~/assets/img/logo.svg" alt="logo" />
     </div>
     <nav v-if="showMenu || $vssWidth > 1024" class="header__nav">
       <ul class="header__nav-ul">
         <li class="header__nav-item">
-          <nuxt-link class="header__nav-item--link" to="/">
-            Home
-          </nuxt-link>
+          <nuxt-link class="header__nav-item--link" to="/"> Home </nuxt-link>
         </li>
         <li class="header__nav-item">
           <nuxt-link class="header__nav-item--link" to="/cursos">
@@ -18,6 +16,11 @@
         <li class="header__nav-item">
           <nuxt-link class="header__nav-item--link" to="/equipamentos">
             Equipamentos
+          </nuxt-link>
+        </li>
+        <li class="header__nav-item">
+          <nuxt-link class="header__nav-item--link" to="/servicos">
+            Serviços
           </nuxt-link>
         </li>
       </ul>
@@ -43,7 +46,7 @@ import NuxtSSRScreenSize from "nuxt-ssr-screen-size";
 export default {
   name: "Header",
   mixins: [NuxtSSRScreenSize.NuxtSSRScreenSizeMixin],
-  data () {
+  data() {
     return {
       showMenu: false,
     };
@@ -64,8 +67,8 @@ export default {
     align-items: center;
     margin-bottom: 0 !important;
 
-    :nth-child(2) {
-      margin: 0 76px;
+    :not(:last-child) {
+      margin-right: 76px;
     }
 
     .header__nav-item {
