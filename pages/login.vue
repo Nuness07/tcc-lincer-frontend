@@ -38,6 +38,14 @@
             Clique aqui para cadastrar
           </nuxt-link>
         </p>
+        <p style="text-align: center; margin: 15px 0;">
+          OU
+        </p>
+        <p class="to-other-login">
+          <nuxt-link to="/login-empresa">
+            Faça login como empresa
+          </nuxt-link>
+        </p>
       </div>
     </div>
   </div>
@@ -145,5 +153,14 @@ export default {
   font-weight: 700;
   color: $neutral-dark;
   text-transform: uppercase;
+}
+
+.to-other-login{
+  text-align: center;
+  margin: 15px 0;
+
+  a{
+    color: $primary-yellow;
+  }
 }
 </style>

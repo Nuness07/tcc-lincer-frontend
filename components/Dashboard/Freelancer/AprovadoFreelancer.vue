@@ -5,11 +5,11 @@
         <h2>Olá, Gabriel!</h2>
         <p>Bem-vindo a sua plataforma de freelancer</p>
       </div>
-      <a
-        v-wave
-        class="aprovado-freelancer__back-dash"
-        href="#"
-      ><OutlineArrowLeftIcon /> Voltar ao dashboard do usuário</a>
+      <nuxt-link to="/servicos">
+        <a-button type="primary">
+          Ver novos projetos
+        </a-button>
+      </nuxt-link>
     </div>
 
     <div class="aprovado-freelancer__cards aprovadas">
@@ -61,12 +61,14 @@
         />
       </div>
 
-      <a-button type="primary">Carregar mais</a-button>
+      <a-button type="primary">
+        Carregar mais
+      </a-button>
       <div class="lds-ring">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div />
+        <div />
+        <div />
+        <div />
       </div>
     </div>
 
@@ -100,12 +102,14 @@
         />
       </div>
 
-      <a-button type="primary">Carregar mais</a-button>
+      <a-button type="primary">
+        Carregar mais
+      </a-button>
       <div class="lds-ring">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div />
+        <div />
+        <div />
+        <div />
       </div>
     </div>
 

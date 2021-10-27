@@ -8,14 +8,13 @@
       <h2 class="equipamento-title">
         {{ equipamento.nome }}
       </h2>
-      <small>{{ equipamento.fornecedor }}</small>
+      <small>{{ equipamento.marca }}</small>
 
-      <div class="card-equipamento__infos">
-        <p>R$ 99,90/hora</p>
-        <p>Microfone</p>
+      <div v-if="categoria" class="card-equipamento__infos">
+        <p>{{ categoria.data.nome }}</p>
       </div>
 
-      <nuxt-link class="ant-btn ant-btn-primary" to="/aaa">
+      <nuxt-link class="ant-btn ant-btn-primary" :to="`/equipamentos-cadastrados/detalhes/${equipamento.id_equipamento}`">
         Ver detalhes
       </nuxt-link>
     </div>
@@ -23,12 +22,27 @@
 </template>
 
 <script>
+import EquipamentoService from '~/service/equipamento/equipamento-service'
 export default {
   props: {
     equipamento: {
       type: Object,
     },
   },
+  data () {
+    return {
+      categoria: null
+    }
+  },
+  mounted () {
+    this.getCategorias()
+  },
+  methods: {
+    async getCategorias () {
+      this.categoria = await EquipamentoService.getCategoria(this.equipamento.categoria)
+      console.log(this.categoria)
+    }
+  }
 };
 </script>
 
@@ -38,6 +52,11 @@ export default {
   overflow: hidden;
   background: #fff;
   width: 300px;
+  transition: .3s transform;
+
+  &:hover{
+    transform: scale(1.05);
+  }
 
   picture {
     position: relative;
@@ -65,12 +84,13 @@ export default {
     h2 {
       margin-bottom: 2px;
       line-height: 26px;
+      font-size: 1.125rem;
     }
 
     small {
       display: flex;
       font-size: 0.875rem;
-      margin-bottom: 16px;
+      margin-bottom: 0px;
       color: $border-gray;
     }
 
@@ -114,6 +134,6 @@ export default {
 }
 
 .equipamento-title{
-  min-height: 80px;
+  min-height: 60px;
 }
 </style>

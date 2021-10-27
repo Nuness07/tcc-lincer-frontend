@@ -1,8 +1,8 @@
 <template>
-  <section class="details">
+  <div class="detalhe-equipamento">
     <div class="container">
       <div class="details__left">
-        <nuxt-link to="/equipamentos">
+        <nuxt-link to="/equipamentos-cadastrados">
           <button><OutlineChevronLeftIcon /> Voltar para os equipamentos</button>
         </nuxt-link>
         <SwiperGaleryThumb />
@@ -11,24 +11,10 @@
       <div class="details__right">
         <div class="details__top">
           <small>Microfone</small>
-          <h2>Título do equipamento</h2>
+          <h2>{{ equipamento.nome }}</h2>
           <caption>
-            Nome do fornecedor
+            {{ equipamento.marca }}
           </caption>
-
-          <div class="details__price">
-            <caption>
-              Valor médio
-            </caption>
-            <div class="details__price-value">
-              <p>R$</p>
-              <h3>90,00</h3>
-            </div>
-          </div>
-
-          <a-button type="primary">
-            Fazer orçamento
-          </a-button>
         </div>
 
         <div class="details__bottom">
@@ -39,11 +25,7 @@
             <transition name="fadeBottom" mode="out-in">
               <div v-if="showDescription" class="details__tab-description">
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dignissimos impedit consequatur vero blanditiis vitae
-                  recusandae repudiandae ea accusantium soluta ipsa repellendus
-                  atque eligendi dolor voluptatibus odit, sed rerum corporis
-                  rem.
+                  {{ equipamento.descricao }}
                 </p>
               </div>
             </transition>
@@ -58,47 +40,42 @@
                 v-if="showEspecifications"
                 class="details__tab-especifications"
               >
-                <ul>
-                  <li>
-                    • Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  </li>
-                  <li>
-                    • Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  </li>
-                  <li>
-                    • Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  </li>
-                  <li>
-                    • Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  </li>
-                  <li>
-                    • Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  </li>
-                </ul>
+                {{ equipamento.especificacoes }}
               </div>
             </transition>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
+import EquipamentoService from '~/service/equipamento/equipamento-service'
 export default {
-  layout: "notLogged",
+  name: 'DetalhesEquipamentos',
+  layout: 'loggedCompany',
   data () {
     return {
       showDescription: false,
       showEspecifications: false,
-    };
+      equipamento: []
+    }
   },
-};
+  mounted () {
+    this.getEquipamento()
+  },
+  methods: {
+    async getEquipamento () {
+      this.equipamento = await EquipamentoService.getEquipamento(this.$route.params.id)
+      this.equipamento = this.equipamento.data
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
-.details {
-  margin-bottom: 64px;
+.detalhe-equipamento{
   .container {
     display: flex;
     align-items: flex-start;

@@ -1,12 +1,14 @@
 <template>
   <header class="header">
     <div class="header__logo">
-      <img src="~/assets/img/logo.svg" alt="logo" />
+      <img src="~/assets/img/logo.svg" alt="logo">
     </div>
     <nav v-if="showMenu || $vssWidth > 1024" class="header__nav">
       <ul class="header__nav-ul">
         <li class="header__nav-item">
-          <nuxt-link class="header__nav-item--link" to="/"> Home </nuxt-link>
+          <nuxt-link class="header__nav-item--link" to="/">
+            Home
+          </nuxt-link>
         </li>
         <li class="header__nav-item">
           <nuxt-link class="header__nav-item--link" to="/cursos">
@@ -51,7 +53,7 @@ import NuxtSSRScreenSize from "nuxt-ssr-screen-size";
 export default {
   name: "Header",
   mixins: [NuxtSSRScreenSize.NuxtSSRScreenSizeMixin],
-  data() {
+  data () {
     return {
       showMenu: false,
     };

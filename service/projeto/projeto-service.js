@@ -17,6 +17,15 @@ const UserService = {
     } catch (err) {
       return err
     }
+  },
+
+  getProjeto: async (id) => {
+    try {
+      const res = await api.get(`projetos/${id}`)
+      return res
+    } catch (err) {
+      return err
+    }
   }
 }
 
