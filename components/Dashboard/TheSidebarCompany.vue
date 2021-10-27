@@ -5,16 +5,11 @@
     <a-menu theme="dark" mode="inline" :default-selected-keys="[activeItem]">
       <a-menu-item key="1" :style="{ padding: '0' }">
         <the-sidebar-link text="Inicio" slug="/dashboard-empresa">
-          <OutlineMicrophoneIcon />
+          <OutlineHomeIcon />
         </the-sidebar-link>
       </a-menu-item>
       <a-menu-item key="2" :style="{ padding: '0' }">
         <the-sidebar-link text="Equipamentos cadastrados" slug="/equipamentos-cadastrados">
-          <OutlineMicrophoneIcon />
-        </the-sidebar-link>
-      </a-menu-item>
-      <a-menu-item key="3" :style="{ padding: '0' }">
-        <the-sidebar-link text="Equipamentos alugados" slug="/equipamentos-alugados">
           <OutlineMicrophoneIcon />
         </the-sidebar-link>
       </a-menu-item>
@@ -43,8 +38,6 @@ export default {
       this.data = '1'
     } else if (this.$route.path === '/equipamentos-cadastrados') {
       this.data = '2'
-    } else if (this.$route.path === '/equipamentos-alugados') {
-      this.data = '3'
     }
   },
   mounted () {

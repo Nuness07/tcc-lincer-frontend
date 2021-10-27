@@ -24,6 +24,11 @@
     </nav>
 
     <div class="header__right">
+      <nuxt-link class="button-company" to="/login-empresa">
+        <a-button v-wave type="primary" class="btn-primary">
+          Plataforma da empresa
+        </a-button>
+      </nuxt-link>
       <nuxt-link to="/login">
         <a-button v-wave type="primary" class="btn-primary">
           Plataforma do criador
@@ -144,6 +149,16 @@ export default {
         display: flex;
       }
     }
+  }
+}
+
+.button-company{
+  margin-right: 5px;
+}
+
+@media(max-width: 576px){
+  .button-company{
+    display: none;
   }
 }
 </style>

@@ -1,19 +1,21 @@
 <template>
   <div class="card-equipamento">
     <picture>
-      <img :src="imgUrl" :alt="title">
+      <img class="img-equipamento" src="~/assets/img/banner-bg.png" alt="imagem do equipamento">
     </picture>
 
     <div class="card-equipamento__content">
-      <h2>{{ title }}</h2>
-      <small>{{ fornecedor }}</small>
+      <h2 class="equipamento-title">
+        {{ equipamento.nome }}
+      </h2>
+      <small>{{ equipamento.fornecedor }}</small>
 
       <div class="card-equipamento__infos">
         <p>R$ 99,90/hora</p>
         <p>Microfone</p>
       </div>
 
-      <nuxt-link class="ant-btn ant-btn-primary" to="/equipamentos/produto">
+      <nuxt-link class="ant-btn ant-btn-primary" to="/aaa">
         Ver detalhes
       </nuxt-link>
     </div>
@@ -23,14 +25,8 @@
 <script>
 export default {
   props: {
-    imgUrl: {
-      type: String,
-    },
-    title: {
-      type: String,
-    },
-    fornecedor: {
-      type: String,
+    equipamento: {
+      type: Object,
     },
   },
 };
@@ -41,6 +37,7 @@ export default {
   border-radius: 8px;
   overflow: hidden;
   background: #fff;
+  width: 300px;
 
   picture {
     position: relative;
@@ -114,5 +111,9 @@ export default {
       }
     }
   }
+}
+
+.equipamento-title{
+  min-height: 80px;
 }
 </style>

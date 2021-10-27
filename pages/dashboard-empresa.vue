@@ -7,25 +7,42 @@
       </p>
     </div>
 
-    <div class="dashboard-100">
-      <div class="dashboard-50">
-        <h2>Equipamentos cadastrados</h2>
-        <div class="dashboard-content dashboard-content__cadastrados">
-          <div v-for="equipamento in equipamentos" :key="equipamento.id" class="equipamento-cadastrado">
-            <CardEquipamentoCadastrado :equipamento="equipamento" />
-          </div>
-        </div>
+    <div class="dashboard-dados">
+      <div class="dashboard-dados-item">
+        <h2>Orçamentos</h2>
+        <p>8</p>
       </div>
-      <div class="dashboard-50">
-        <h2>Equipamentos com aluguel vigente</h2>
-        <div class="dashboard-content dashboard-content__alugados">
-          <div v-for="equipamento in equipamentos" :key="equipamento.id" class="equipamento-cadastrado">
-            <CardEquipamentoAlugado :equipamento="equipamento" />
-          </div>
+      <div class="dashboard-dados-item">
+        <h2>Equipamentos alugados</h2>
+        <p>4</p>
+      </div>
+      <div class="dashboard-dados-item">
+        <h2>Equipamentos Cadastrados</h2>
+        <p>6</p>
+      </div>
+      <div class="dashboard-dados-item">
+        <h2>Total de alugueis</h2>
+        <p>16</p>
+      </div>
+    </div>
+
+    <div class="dashboard-equipamentos">
+      <h2>Equipamentos cadastrados</h2>
+      <div class="dashboard-content dashboard-content__cadastrados">
+        <div v-for="equipamento in equipamentos" :key="equipamento.id" class="equipamento-cadastrado">
+          <CardEquipamentoCadastrado :equipamento="equipamento" />
         </div>
       </div>
     </div>
-    <pre>{{ $auth.user }}</pre>
+
+    <div class="dashboard-orcamentos">
+      <h2>Orçamentos</h2>
+      <div class="dashboard-content dashboard-content__cadastrados">
+        <div v-for="equipamento in equipamentos" :key="equipamento.id" class="equipamento-cadastrado">
+          <CardEquipamentoCadastrado :equipamento="equipamento" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -43,7 +60,8 @@ export default {
           ativo: true,
           fornecedor: 'Samsung',
           alugado: 'contateste@gmail.com',
-          prazo_aluguel: '8'
+          telefone: '(11) 97444-4444',
+          prazo_aluguel: '6'
         },
         {
           id: 2,
@@ -51,27 +69,33 @@ export default {
           categoria: 'Microfones',
           ativo: true,
           fornecedor: 'SHURE',
+          alugado: 'contateste@gmail.com',
+          telefone: '(11) 97444-4444',
+          prazo_aluguel: '6'
         },
         {
-          id: 1,
+          id: 3,
           nome: 'Tripé Telescópico Profissional P/Câmera',
           categoria: 'Tripés',
           ativo: false,
           fornecedor: 'Samsung',
         },
         {
-          id: 1,
+          id: 4,
           nome: 'Canon EOS Rebel T7 Ef-S 18-55 F/3.5-5.6 Is II',
           categoria: 'Câmeras',
           ativo: false,
           fornecedor: 'Samsung',
         },
         {
-          id: 1,
-          nome: 'Canon EOS Rebel T7 Ef-S 18-55 F/3.5-5.6 Is II',
+          id: 5,
+          nome: 'Câmera Canon EOS Rebel T7+ com Lente EF-S 18-55mm IS II',
           categoria: 'Câmeras',
           ativo: true,
-          fornecedor: 'Samsung',
+          fornecedor: 'Canon',
+          alugado: 'brunopalotta@gmail.com',
+          telefone: '(11) 97231-8452',
+          prazo_aluguel: '3'
         },
       ]
     }
@@ -100,17 +124,6 @@ export default {
     color: #000;
   }
 }
-
-.dashboard-100{
-  display: flex;
-  column-gap: 30px;
-  justify-content: space-between;
-}
-
-.dashboard-50{
-  width: 50%;
-}
-
 .dashboard-content{
   background: #FFF;
   border-radius: 4px;
@@ -120,6 +133,43 @@ export default {
 
   &__alugados{
     margin-right: 36px;
+  }
+}
+
+.dashboard-equipamentos{
+  margin-right: 36px;
+}
+
+.dashboard-orcamentos{
+  margin-top: 40px;
+  margin-right: 36px;
+}
+
+.dashboard-dados{
+  display: flex;
+  justify-content: space-between;
+  margin-right: 36px;
+  column-gap: 20px;
+  margin: 30px 36px 30px 0;
+}
+
+.dashboard-dados-item{
+  background: #FFF;
+  border-radius: 8px;
+  padding: 10px;
+  width: 25%;
+  h2{
+    font-size: 1.25rem;
+    color: $primary-yellow;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  p{
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    color: $secondary-dark;
   }
 }
 </style>

@@ -16,12 +16,18 @@
           </p>
 
           <div class="card-equipamento__infos-ativado">
-            <p class="por">
-              Alugado por gnmf2000@gmail.com
+            <p v-if="equipamento.ativo" class="detail-ativado ativo">
+              Ativo
             </p>
-            <p class="prazo">
-              Prazo: 8 meses
+            <p v-else class="detail-ativado inativo">
+              Inativo
             </p>
+
+            <div v-if="equipamento.ativo" class="infos-ativo">
+              <p>E-mail: {{ equipamento.alugado }}</p>
+              <p>Whatsapp: {{ equipamento.telefone }}</p>
+              <p>Prazo: {{ equipamento.prazo_aluguel }} meses</p>
+            </div>
           </div>
         </div>
       </div>
@@ -35,7 +41,7 @@
 
 <script>
 export default {
-  name: 'CardEquipamentoAlugado',
+  name: 'CardEquipamentoOrcamento',
   props: {
     equipamento: {
       type: Object
@@ -77,7 +83,6 @@ export default {
 
 .card-equipamento__content{
   margin: 0 10px;
-  width: 300px;
   h2{
     font-size: 0.875rem;
     font-weight: 400;
@@ -97,7 +102,7 @@ export default {
 
 .card-equipamento__infos{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-end;
   margin-top: 10px;
 }
@@ -125,5 +130,18 @@ export default {
 }
 .inativo{
   background: $alert-warning;
+}
+
+.infos-ativo{
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+
+  p{
+    font-size: 0.75rem;
+    color: #000;
+    align-items: center;
+    margin-left: 5px;
+  }
 }
 </style>
