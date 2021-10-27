@@ -1,5 +1,5 @@
 <template>
-  <div class="servicos">
+  <div class="servicos container">
     <div class="servicos__left">
       <h3>Filtros</h3>
 
@@ -72,24 +72,9 @@
 
         <div class="servicos__search-cards">
           <CardServicos
-            title="Preciso de alguém para editar meus vídeos"
-            :description="
-              description.length ? description : 'Sem descrição disponível'
-            "
-          />
-
-          <CardServicos
-            title="Preciso de alguém para editar meus vídeos"
-            :description="'' ? 'description' : 'Sem descrição disponível'"
-          />
-
-          <CardServicos
-            title="Preciso de alguém para editar meus vídeos"
-            :description="
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit. '
-                ? description + description
-                : 'Sem descrição disponível'
-            "
+            v-for="item, index in servicos"
+            :key="index"
+            :dados="item"
           />
         </div>
       </div>
@@ -98,13 +83,16 @@
 </template>
 
 <script>
+import servicos from "@/components/Dashboard/Freelancer/Servicos/servicos.json";
+
 export default {
   name: "Serviços",
-  layout: "logged",
+  layout: "notLogged",
   // middleware: 'auth',
   data() {
     return {
       tagsSearch: [],
+      servicos: servicos,
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
     };
@@ -132,9 +120,6 @@ export default {
 <style lang="scss" scoped>
 .servicos {
   margin-top: 80px;
-  margin-left: 36px;
-  margin-right: 36px;
-  max-width: 1920px;
   padding-bottom: 40px;
 
   display: flex;

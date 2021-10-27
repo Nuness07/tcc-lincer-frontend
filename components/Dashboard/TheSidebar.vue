@@ -13,11 +13,6 @@
           <OutlineMicrophoneIcon />
         </the-sidebar-link>
       </a-menu-item>
-      <a-menu-item key="3" :style="{ padding: '0' }">
-        <the-sidebar-link text="Serviços" slug="/servicos">
-          <OutlineCogIcon />
-        </the-sidebar-link>
-      </a-menu-item>
       <a-menu-item key="4" :style="{ padding: '0' }">
         <the-sidebar-link text="Cursos" slug="/meus-cursos">
           <OutlineBookOpenIcon />

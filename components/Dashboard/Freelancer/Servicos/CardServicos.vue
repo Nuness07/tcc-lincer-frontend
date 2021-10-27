@@ -1,39 +1,34 @@
 <template>
   <div class="card-servicos">
     <div class="card-servicos__header">
-      <h2>{{ title }}</h2>
-      <p>R$ 5.000,00</p>
+      <h2>{{ dados.titulo }}</h2>
+      <p>{{ dados.preco }}</p>
     </div>
     <div class="card-servicos__small-dados">
       <small>Publicado: <span>há 4 horas</span></small>
-      <small>Prazo de entrega: <span>18/06/2021</span></small>
-      <small>Propostas: <span>5</span></small>
+      <small
+        >Prazo de entrega: <span>{{ dados.data_entrega }}</span></small
+      >
+      <small
+        >Propostas: <span>{{ dados.propostas_recebidas }}</span></small
+      >
     </div>
 
     <p class="card-servicos__description">
-      {{ descriptionComp }}
+      {{ descriptionComp.length == 0 ? "Sem descrição" : descriptionComp }}
       <a @click.prevent="seeAllDescription" v-if="showButtonSeeMore">
         ver mais detalhes
       </a>
     </p>
     <div class="card-servicos__tags">
-      <caption class="card-servicos__tag">
-        Audiovisual
-      </caption>
-      <caption class="card-servicos__tag">
-        After Effects
-      </caption>
-      <caption class="card-servicos__tag">
-        Câmeras Canon
-      </caption>
-      <caption class="card-servicos__tag">
-        Audiovisual
-      </caption>
-      <caption class="card-servicos__tag">
-        After Effects
-      </caption>
-      <caption class="card-servicos__tag">
-        Câmeras Canon
+      <caption
+        class="card-servicos__tag"
+        v-for="(habilidade, index) in dados.habilidades_desejadas"
+        :key="index"
+      >
+        {{
+          habilidade
+        }}
       </caption>
     </div>
 
@@ -41,7 +36,7 @@
       <div class="card-servicos__footer-left">
         <div class="card-servicos__icon">
           <OutlineUserIcon />
-          Nome do usuário
+          {{ dados.perfil_contratante.nome }}
         </div>
         <div class="card-servicos__icon">
           <OutlineBadgeCheckIcon />
@@ -49,8 +44,8 @@
         </div>
       </div>
 
-      <nuxt-link to="/" class="btn-proposta" v-wave>
-        Fazer uma proposta <OutlineChevronRightIcon />
+      <nuxt-link :to="dados.link" class="btn-proposta" v-wave>
+        Ver mais detalhes <OutlineChevronRightIcon />
       </nuxt-link>
     </div>
   </div>
@@ -64,6 +59,13 @@ export default {
     },
     description: {
       type: String,
+    },
+    link: {
+      type: String,
+    },
+
+    dados: {
+      type: Object,
     },
   },
   data() {
@@ -81,13 +83,13 @@ export default {
   computed: {
     descriptionComp() {
       return this.showDescription
-        ? this.description
-        : this.description.substring(0, 440) + "...";
+        ? this.dados.descricao
+        : this.dados.descricao.substring(0, 440) + "...";
     },
   },
   created() {
     // Vai mostrar já a descrição e NÃO mostrar o botão ver mais detalhes
-    if (this.description.length <= 440) {
+    if (this.dados.descricao.length <= 440) {
       this.showDescription = true;
       this.showButtonSeeMore = false;
     } else {
