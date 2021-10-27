@@ -73,7 +73,6 @@ export const mutations = {
       link_twitch: null,
       is_professor: false,
       is_freelancer: true,
-      is_empresa: false,
       titulo_profissional: null,
       descricao_freelancer: null,
       experiencia_profissional: null,
@@ -84,8 +83,6 @@ export const mutations = {
       pergunta_professor_2: null,
       pergunta_professor_3: null,
       freelancer_verificado: null,
-      cnpj: null,
-      empresa_parceira: false
     }
   }
 };
