@@ -191,7 +191,7 @@ export default {
             prazo: this.formCadastroProjeto.prazo,
             preco: this.formCadastroProjeto.valor,
             id_contratante: this.$auth.user.id_usuario,
-            aprovado: false,
+            aprovado: true,
             impulso: this.formCadastroProjeto.impulso,
             id_categoria_projeto: this.formCadastroProjeto.categoria
           }
