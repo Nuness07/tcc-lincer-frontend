@@ -9,6 +9,15 @@ const EmpresaService = {
       return err
     }
   },
+
+  getCategorias: async () => {
+    try {
+      const res = await api.get('/categorias_equipamento')
+      return res
+    } catch (err) {
+      return err
+    }
+  }
 }
 
-export default EmpresaService
+export default EmpresaService;

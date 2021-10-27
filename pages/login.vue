@@ -61,6 +61,11 @@ export default {
       },
     };
   },
+  mounted () {
+    if (this.$auth.user && this.$auth.user.id_usuario) {
+      this.$router.push('/dashboard')
+    }
+  },
   methods: {
     async check () {
       await this.$refs.formLogin.validate((valid) => {

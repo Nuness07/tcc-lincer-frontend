@@ -5,6 +5,9 @@
       <div class="title">
         <h2>Bem-Vindo</h2>
         <p>{{ $auth.user.nome }} {{ $auth.user.sobrenome }}</p>
+        <p class="logout" @click="logout">
+          sair
+        </p>
       </div>
 
       <div class="equipamentos-alugados">
@@ -363,6 +366,9 @@ export default {
       try {
         await this.$auth.logout();
         this.$router.push("/login");
+        this.$toast.success('Você deslogou com sucesso!', {
+          timeout: 2000
+        })
       } catch (err) {
         console.log(err);
       }
@@ -665,5 +671,18 @@ export default {
   overflow-y: scroll;
   overflow-x: hidden;
   margin-bottom: 20px;
+}
+
+.logout{
+  background: $alert-error !important;
+  width: 60px;
+  border-radius: 5px;
+  padding: 5px 0;
+  color: #FFF !important;
+  font-weight: 400;
+  text-align: center;
+  font-size: 0.6rem !important;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 </style>

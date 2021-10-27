@@ -5,6 +5,9 @@
       <p>
         {{ $auth.user.nome }}
       </p>
+      <p class="logout" @click="logout">
+        sair
+      </p>
     </div>
 
     <div class="dashboard-dados">
@@ -99,6 +102,19 @@ export default {
         },
       ]
     }
+  },
+  methods: {
+    async logout () {
+      try {
+        await this.$auth.logout();
+        this.$router.push("/login-empresa");
+        this.$toast.success('Você deslogou com sucesso!', {
+          timeout: 2000
+        })
+      } catch (err) {
+        console.log(err);
+      }
+    },
   }
 };
 </script>
@@ -171,5 +187,18 @@ export default {
     font-size: 2rem;
     color: $secondary-dark;
   }
+}
+
+.logout{
+  background: $alert-error !important;
+  width: 60px;
+  border-radius: 5px;
+  padding: 5px 0;
+  color: #FFF !important;
+  font-weight: 400;
+  text-align: center;
+  font-size: 0.6rem !important;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 </style>

@@ -61,6 +61,11 @@ export default {
       },
     };
   },
+  mounted () {
+    if (this.$auth.user && this.$auth.user.id_empresa) {
+      this.$router.push('/dashboard-empresa')
+    }
+  },
   methods: {
     async check () {
       await this.$refs.formLogin.validate((valid) => {

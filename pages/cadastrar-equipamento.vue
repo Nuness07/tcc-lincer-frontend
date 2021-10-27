@@ -9,9 +9,9 @@
       </p>
 
       <a-form-model ref="formCadastroEquipamento" class="cadastro-equipamento__form" :model="formCadastroEquipamento" :rules="rules">
-        <a-form-model-item prop="titulo" label="Título do Equipamento">
+        <a-form-model-item prop="nome" label="Título do Equipamento">
           <a-input
-            v-model="formCadastroEquipamento.titulo"
+            v-model="formCadastroEquipamento.nome"
             type="text"
             class="secondary"
             placeholder="Câmera Canon"
@@ -31,11 +31,67 @@
           label="Selecione a categoria do projeto"
         >
           <a-select style="width: 120px" @change="handleCategoria">
-            <a-select-option v-for="categorias, index in categorias_projeto.data" :key="`categoria-${index}`" :value="String(categorias.id_categoria_projeto)">
+            <a-select-option v-for="categorias, index in categorias_projeto.data" :key="`categoria-${index}`" :value="String(categorias.id_tipo_equipamento)">
               {{ categorias.nome }}
             </a-select-option>
           </a-select>
         </a-form-model-item>
+
+        <a-form-model-item
+          prop="descricao"
+          label="Descreva o equipamento"
+        >
+          <a-input
+            v-model="formCadastroEquipamento.descricao"
+            type="textarea"
+            allow-clear
+            class="secondary"
+            :auto-size="{ minRows: 5, maxRows: 15 }"
+            placeholder="Digite aqui a descrição do equipamento"
+          />
+        </a-form-model-item>
+
+        <a-form-model-item
+          prop="especificacoes_tecnicas"
+          label="Quais são as especificações técnicas do equipamento"
+        >
+          <a-input
+            v-model="formCadastroEquipamento.especificacoes_tecnicas"
+            type="textarea"
+            allow-clear
+            class="secondary"
+            :auto-size="{ minRows: 5, maxRows: 15 }"
+            placeholder="Digite aqui as especificações técnicas do equipamento"
+          />
+        </a-form-model-item>
+        <a-form-model-item
+          prop="arquivos"
+          label="Imagens do equipamento"
+        >
+          <div class="clearfix">
+            <a-upload
+              action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+              list-type="picture-card"
+              :file-list="arquivos"
+              @preview="handlePreview"
+              @change="handleChange"
+            >
+              <div v-if="arquivos.length < 8">
+                <a-icon type="plus" />
+                <div class="ant-upload-text">
+                  Upload
+                </div>
+              </div>
+            </a-upload>
+            <a-modal :visible="previewVisible" :footer="null" @cancel="handleCancel">
+              <img alt="example" style="width: 100%" :src="previewImage">
+            </a-modal>
+          </div>
+        </a-form-model-item>
+
+        <a-button class="btn-send-Projeto" type="primary" @click="cadastrarProjeto">
+          Publicar projeto
+        </a-button>
       </a-form-model>
     </div>
   </div>
@@ -44,21 +100,34 @@
 <script>
 import { VMoney } from 'v-money';
 import moment from 'moment';
+import EmpresaService from '~/service/empresa/empresa-service';
+import EquipamentoService from '~/service/equipamento/equipamento-service';
+function getBase64 (file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+}
 export default {
   name: 'NovoEquipamento',
-  directives: { money: VMoney },
-  layout: 'logged',
+  layout: 'loggedCompany',
   data () {
     return {
+      previewVisible: false,
+      previewImage: '',
       formCadastroEquipamento: {
         nome: null,
         marca: null,
         categoria: null,
         descricao: null,
-        especificacoes_tecnicas: 'arquivos',
+        especificacoes_tecnicas: null,
         ativo: false,
         impulso: false
       },
+
+      arquivos: [],
 
       categorias_projeto: [],
 
@@ -69,39 +138,6 @@ export default {
         descricao: [{ required: true, message: "A descrição é obrigatória" }],
         especificacoes_tecnicas: [{ required: true, message: "As especificações são obrigatórias" }],
       },
-
-      money: {
-        decimal: ',',
-        thousands: '.',
-        prefix: 'R$ ',
-        suffix: '',
-        precision: 0,
-        masked: false,
-      },
-
-      habilidades: [
-        {
-          nome: 'Photoshop'
-        },
-        {
-          nome: 'VFX'
-        },
-        {
-          nome: 'Infraestrutura'
-        },
-        {
-          nome: 'Sonoplastia'
-        },
-        {
-          nome: 'Adobe Illustrator'
-        },
-        {
-          nome: 'Ilustrador'
-        },
-        {
-          nome: 'Pacote Adobe'
-        },
-      ]
     }
   },
   mounted () {
@@ -111,11 +147,11 @@ export default {
     moment,
 
     async getCategorias () {
-      this.categorias_projeto = await projetosService.getCategorias();
+      this.categorias_projeto = await EmpresaService.getCategorias();
     },
 
     handleCategoria (value) {
-      this.formCadastroProjeto.categoria = value;
+      this.formCadastroEquipamento.categoria = value;
     },
 
     handleHabilidadesNecessarias (value) {
@@ -127,34 +163,48 @@ export default {
     },
 
     async cadastrarProjeto () {
-      await this.$refs.formCadastroProjeto.validate((valid) => {
+      await this.$refs.formCadastroEquipamento.validate((valid) => {
         if (valid) {
-          const projeto = {
-            nome_projeto: this.formCadastroProjeto.titulo,
-            descricao: this.formCadastroProjeto.descricao,
-            habilidades_desejadas: this.formCadastroProjeto.habilidades_desejadas,
-            arquivos: 'arquivos',
-            prazo: this.formCadastroProjeto.prazo,
-            preco: this.formCadastroProjeto.valor,
-            id_contratante: this.$auth.user.id_usuario,
-            aprovado: false,
-            impulso: this.formCadastroProjeto.impulso,
-            id_categoria_projeto: this.formCadastroProjeto.categoria
+          const equipamento = {
+            nome_equipamento: this.formCadastroEquipamento.nome,
+            descricao: this.formCadastroEquipamento.descricao,
+            especificacoes: this.formCadastroEquipamento.especificacoes_tecnicas,
+            fotos: 'ajdajlk',
+            marca: this.formCadastroEquipamento.marca,
+            id_empresa_relation: this.$auth.user.id_empresa,
+            id_tipo_equipamento: this.formCadastroEquipamento.categoria,
+            modelo: '--',
+            valor_mes: '--'
           }
 
-          projetosService.cadastrarProjeto(projeto).then((i) => {
+          EquipamentoService.cadastrar(equipamento).then((i) => {
             this.$toast.success("Projeto criado e enviado para análise!", {
               timeout: 2000
             })
 
-            this.$router.push({ path: '/meus-servicos' })
+            this.$router.push({ path: '/equipamentos-cadastrados' })
           })
         } else {
           console.log("error submit!!");
           return false;
         }
       });
-    }
+    },
+
+    handleCancel () {
+      this.previewVisible = false;
+    },
+    async handlePreview (file) {
+      if (!file.url && !file.preview) {
+        file.preview = await getBase64(file.originFileObj);
+      }
+      this.previewImage = file.url || file.preview;
+      this.previewVisible = true;
+    },
+    handleChange ({ fileList }) {
+      this.arquivos = fileList;
+    },
+
   }
 }
 </script>
