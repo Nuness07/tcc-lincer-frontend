@@ -114,6 +114,8 @@ export default {
           this.$toast.success("Usuário cadastrado com sucesso", {
             timeout: 2000
           })
+
+          this.$router.push("/login");
         } else {
           console.log("error submit!!");
           return false;
