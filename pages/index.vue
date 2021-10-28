@@ -119,13 +119,9 @@
               <p>Prioridade ao publicar seus cursos</p>
             </div>
 
-            <button onclick="$increazyCheckoutPay('lincer-premium')">
+            <button v-wave class="btn-assinatura" onclick="$increazyCheckoutPay('lincer-premium')">
               Quero virar assinante
             </button>
-
-            <a-button type="primary" class="btn-primary btn-assinante">
-              Quero virar assinante!
-            </a-button>
           </div>
         </div>
       </section>
@@ -459,5 +455,15 @@ export default {
       }
     }
   }
+}
+
+.btn-assinatura{
+  background: $primary-yellow;
+  border: none;
+  padding: 20px 100px;
+  border-radius: 4px;
+  margin-top: 20px;
+  font-weight: 700;
+  cursor: pointer;
 }
 </style>
