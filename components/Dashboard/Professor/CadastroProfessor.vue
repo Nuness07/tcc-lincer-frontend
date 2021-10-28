@@ -163,7 +163,7 @@
             Responder novamente
           </a-button>
           <a-button class="btn-confirmarCadastro" type="primary" @click="confirmarCadastro()">
-            confirmarCadastro
+            Confirmar cadastro
           </a-button>
         </div>
       </div>
