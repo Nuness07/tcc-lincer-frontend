@@ -108,12 +108,12 @@
                 Disponibilidade imediata:
                 <span>
                   <OutlineCheckIcon
-                  style="color: #2fcb5a;"
+                    style="color: #2fcb5a"
                     v-if="
                       propostas[propostaSelecionada].disponibilidade_imediata
                     "
                   />
-                  <OutlineXIcon style="color: #fa3535;" v-else />
+                  <OutlineXIcon style="color: #fa3535" v-else />
                 </span>
               </li>
             </ul>
@@ -591,6 +591,72 @@ export default {
           .p-desc {
             color: #000;
             font-size: 0.75rem;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+      height: 90vh;
+
+      .modal__left {
+        width: 100%;
+        border-right: 0;
+        margin-top: 143px;
+        height: calc(100% - 143px);
+
+        .modal__header {
+          padding: 16px 8px;
+          height: initial;
+        }
+      }
+
+      .modal__right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        background: #fff;
+        height: initial !important;
+
+        h3 {
+          padding: 8px !important;
+          height: 50px !important;
+        }
+
+        .propostas {
+          display: flex;
+          flex-direction: row;
+          overflow-y: initial !important;
+          overflow-x: auto;
+          width: 100%;
+          height: initial !important;
+          .proposta {
+            min-width: 200px;
+            padding: 12px 8px !important;
+            border-right: 1px solid rgba(0, 0, 0, 0.08);
+
+            .p-desc {
+              height: 40px;
+              overflow: hidden;
+            }
+          }
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          &::-webkit-scrollbar-track {
+            display: none;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            display: none;
+          }
+
+          &::-webkit-scrollbar-thumb:hover {
+            display: none;
           }
         }
       }

@@ -79,8 +79,44 @@
           <li><span>08</span> freelances interessados</li>
         </ul>
 
+        <a-button @click="showModalProposta" type="primary"
+          >Enviar proposta</a-button
+        >
+      </div>
+    </div>
+
+    <div class="infos__modal" v-if="showVideo">
+      <div class="modal">
+        <h3>Conte-nos mais sobre a proposta</h3>
+
+        <div class="form-group">
+          <label for="descricao">Descrição</label>
+          <textarea
+            name="descricao"
+            v-model="descricao"
+            id="descricao"
+            maxlength="500"
+          ></textarea>
+          <small>500 / {{ descricao.length }}</small>
+        </div>
+
+        <div class="form-group">
+          <label for="orcamento-previsto">Orçamento previsto</label>
+          <input type="text" name="orcamento-previsto" />
+        </div>
+
+        <div class="form-group">
+          <label for="prazo-previsto">Prazo previsto</label>
+          <input type="text" name="prazo-previsto" />
+        </div>
+
+        <a-checkbox @change="onChange"> Disponibilidade imediata </a-checkbox>
+
         <a-button type="primary">Enviar proposta</a-button>
       </div>
+      <button @click="showVideo = false" v-wave class="btn-close">
+        <OutlineXIcon />
+      </button>
     </div>
   </div>
 </template>
@@ -99,7 +135,20 @@ export default {
   data() {
     return {
       servicos: servicos,
+
+      showVideo: false,
+
+      descricao: "",
     };
+  },
+  methods: {
+    showModalProposta() {
+      console.log("kalhsdbdf");
+      this.showVideo = true;
+    },
+    onChange(e) {
+      console.log(`checked = ${e.target.checked}`);
+    },
   },
   computed: {
     servico() {
@@ -269,6 +318,109 @@ export default {
         border-left: 0;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
       }
+    }
+  }
+}
+
+.infos__modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  height: 100vh;
+  padding: 0 24px;
+
+  .btn-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 0;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    svg {
+      color: #fff;
+      width: 24px;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  .modal {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    max-width: 600px;
+    padding: 24px 32px;
+    width: 100%;
+    position: relative;
+    background: #F7F7F7;
+    border-radius: 8px;
+
+    h3 {
+      font-weight: bold;
+      margin: 0 auto 32px auto;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+
+      label {
+        font-weight: bold;
+        font-size: 0.875rem;
+        margin-bottom: 8px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        outline: none;
+        border: 0;
+        border-radius: 4px;
+        padding: 16px;
+      }
+
+      input {
+        height: 48px;
+      }
+
+      textarea {
+        height: 164px;
+      }
+
+      small {
+        margin-left: auto;
+        font-weight: bold;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+    }
+
+    .ant-checkbox-wrapper::v-deep {
+      margin-bottom: 32px;
+    }
+
+    .ant-btn {
+      margin: 0 auto;
     }
   }
 }
