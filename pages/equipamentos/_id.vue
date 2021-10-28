@@ -18,16 +18,6 @@
             Nome do fornecedor
           </caption>
 
-          <div class="details__price">
-            <caption>
-              Valor médio
-            </caption>
-            <div class="details__price-value">
-              <p>R$</p>
-              <h3>90,00</h3>
-            </div>
-          </div>
-
           <a-button type="primary" @click="showModal = true">
             Fazer orçamento
           </a-button>
@@ -132,7 +122,9 @@
 
         <!-- <a-checkbox @change="onChange"> Disponibilidade imediata </a-checkbox> -->
 
-        <a-button type="primary"> Fazer orçamento </a-button>
+        <a-button type="primary">
+          Fazer orçamento
+        </a-button>
       </div>
       <button v-wave class="btn-close" @click="showModal = false">
         <OutlineXIcon />
@@ -144,7 +136,7 @@
 <script>
 export default {
   layout: "notLogged",
-  data() {
+  data () {
     return {
       showDescription: false,
       showEspecifications: false,
@@ -159,7 +151,7 @@ export default {
     };
   },
   methods: {
-    showModalOrcamento() {
+    showModalOrcamento () {
       console.log("jgkaskdjvsa");
     },
   },
