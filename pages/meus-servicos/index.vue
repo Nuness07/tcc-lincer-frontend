@@ -42,6 +42,11 @@ export default {
     getProjetos () {
       this.projetos = this.$auth.user.projetos
     }
+  },
+  watch: {
+    projetos(newValue, oldValue) {
+      console.log(newValue)
+    }
   }
 }
 </script>
