@@ -2,7 +2,7 @@
   <div class="aprovado-freelancer">
     <div class="aprovado-freelancer__header">
       <div class="aprovado-freelancer__header-left">
-        <h2>Olá, Gabriel!</h2>
+        <h2>Olá, {{ $auth.user.nome }}</h2>
         <p>Bem-vindo a sua plataforma de professor</p>
       </div>
       <nuxt-link to="/servicos">
@@ -15,34 +15,15 @@
     <div class="aprovado-freelancer__cards aprovadas">
       <h3>Seus cursos</h3>
 
-      <div class="aprovado-freelancer__cards-items">
-        <CardServico
-          titulo="Lorem ipsum dolor sit"
-          descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
-        />
+      <div v-if="$auth.user.cursos.length == 0" class="aprovado-freelancer__cards-items">
+        <h3>Você ainda não publicou nenhum curso!</h3>
+        <p>Comece a ensinar agora na lincer</p>
       </div>
-
-      <a-button type="primary">
-        Carregar mais
-      </a-button>
-      <div class="lds-ring">
-        <div />
-        <div />
-        <div />
-        <div />
-      </div>
-    </div>
-
-    <div class="aprovado-freelancer__cards pendentes">
-      <h3>Propostas pendentes</h3>
-      <!-- <div class="aprovado-freelancer__white">
-        <div class="aprovado-freelancer__sem-propostas">
-          <h4>Você ainda não possui nenhumas proposta aceita</h4>
-          <a-button type="primary">
-            Ver projetos
-          </a-button>
+      <div v-else class="aprovado-professor-cursos">
+        <div v-for="curso, index in $auth.user.cursos" :key="index" class="aprovado-professor__cards-item">
+          <CardCursoPublicado :curso="curso" />
         </div>
-      </div> -->
+      </div>
     </div>
 
     <GuiasDicas />
@@ -59,6 +40,8 @@ export default {
 .aprovado-freelancer {
   max-width: 1920px;
   padding-bottom: 80px;
+  margin-left: 36px;
+  margin-top: 80px;
 
   @media (max-width: 1024px) {
     padding-bottom: 120px;
@@ -224,5 +207,11 @@ export default {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.aprovado-professor-cursos{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 30px;
 }
 </style>
