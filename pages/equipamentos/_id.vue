@@ -16,16 +16,6 @@
             Nome do fornecedor
           </caption>
 
-          <div class="details__price">
-            <caption>
-              Valor médio
-            </caption>
-            <div class="details__price-value">
-              <p>R$</p>
-              <h3>90,00</h3>
-            </div>
-          </div>
-
           <a-button type="primary">
             Fazer orçamento
           </a-button>
