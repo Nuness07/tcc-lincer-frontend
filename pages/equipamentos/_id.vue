@@ -106,7 +106,7 @@
           />
         </a-form-model-item>
 
-        <a-form-model-item has-feedback prop="email" label="WhatApp">
+        <a-form-model-item has-feedback prop="email" label="WhatsApp">
           <a-input
             v-model="whatsapp"
             type="email"
@@ -118,7 +118,7 @@
         <a-form-model-item
           has-feedback
           prop="experiencia_profissional"
-          label="Experiência Profissional"
+          label="Descrição"
         >
           <a-input
             v-model="descricao"

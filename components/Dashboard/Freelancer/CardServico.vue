@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link class="card-servico" to="/" v-wave>
+  <div class="card-servico" to="/" v-wave>
     <h2>{{ titulo }}</h2>
     <p class="card-servico__description">{{ descricao }}</p>
 
@@ -12,14 +12,7 @@
       </div>
       <p class="card-servico__preco">R$ 5.000,00</p>
     </div>
-
-    <!-- 
-        título
-        descrição parcial
-        preço
-        Nome pessoa
-     -->
-  </nuxt-link>
+  </div>
 </template>
 
 <script>
@@ -44,6 +37,7 @@ export default {
   border-radius: 8px;
   transition: all 0.3s;
   color: rgb(179, 179, 179);
+  cursor: pointer;
 
   h2 {
     font-size: 1rem;
