@@ -2,11 +2,7 @@
   <div class="meus-cursos">
     <div class="meus-cursos__title">
       <h2>Meus Cursos</h2>
-
-      <div v-if="$auth.user.email == 'contacompleta@gmail.com'">
-        {{ $auth.user.email }}
-      </div>
-      <div v-else class="sem-equipamento">
+      <div class="sem-equipamento">
         <h2>Você ainda não comprou nenhum curso</h2>
         <p>Veja nossa lista completa de cursos aqui</p>
         <nuxt-link to="/cursos">

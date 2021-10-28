@@ -89,6 +89,7 @@
     >
       <a-form-model
         ref="novaAula"
+        class="form-aula-modal"
         :rules="rulesNovaAula"
         :model="novaAula"
       >
@@ -103,7 +104,7 @@
         <a-form-model-item
           has-feedback
           prop="descricao_aula"
-          label="Experiência Profissional"
+          label="Descricao da aula"
         >
           <a-input
             v-model="novaAula.descricao_aula"
@@ -121,6 +122,9 @@
           label="Vídeo"
         >
           <a-input v-model="novaAula.video" placeholder="Cole aqui o link" />
+          <p class="description-video">
+            *Cole aqui o embed do youtube ou vimeo
+          </p>
         </a-form-model-item>
 
         <a-button
@@ -361,5 +365,18 @@ export default {
     color: $secondary-dark;
     font-weight: 700;
   }
+}
+
+.form-aula-modal{
+  padding: 40px;
+}
+
+.form-item__title{
+  margin: 0 !important;
+}
+
+.description-video{
+  font-size: 0.75rem;
+  color: $primary-yellow;
 }
 </style>
