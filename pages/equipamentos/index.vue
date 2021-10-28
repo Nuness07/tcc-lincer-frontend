@@ -140,28 +140,29 @@ export default {
   .equipamentos__listagem {
     margin-bottom: 80px;
 
-    .equipamentos__filtros {
-      .ant-select::v-deep {
-        width: 200px;
-        margin-right: 16px;
+    .equipamentos__filtros::v-deep {
+      display: flex;
+      .ant-select {
+        width: 200px !important;
+        margin-right: 16px !important;
       }
 
       @media (max-width: 992px) {
         display: flex;
         justify-content: space-between;
-        .ant-select::v-deep {
-          margin-right: initial;
-          width: calc(100% / 3 - 15px);
+        .ant-select {
+          margin-right: initial !important;
+          width: calc(100% / 3 - 15px) !important;
         }
       }
 
       @media (max-width: 576px) {
         flex-direction: column;
-        .ant-select::v-deep {
-          width: 100%;
+        .ant-select {
+          width: 100% !important;
 
           &:not(:last-child) {
-            margin-bottom: 32px;
+            margin-bottom: 32px !important;
           }
         }
       }
