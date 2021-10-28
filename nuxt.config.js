@@ -22,6 +22,12 @@ export default {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap' }
 
+    ],
+    script: [
+      {
+        src: `https://storage.test.increazy.com/scripts/checkout.js?app=27&type=onebuy&tm=${(+new Date())}`,
+        async: false
+      },
     ]
   },
 

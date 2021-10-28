@@ -119,6 +119,10 @@
               <p>Prioridade ao publicar seus cursos</p>
             </div>
 
+            <button onclick="$increazyCheckoutPay('lincer-premium')">
+              Quero virar assinante
+            </button>
+
             <a-button type="primary" class="btn-primary btn-assinante">
               Quero virar assinante!
             </a-button>
