@@ -3,6 +3,11 @@
     <div class="editar-curso__title">
       <h2>{{ curso.nome_curso }}</h2>
       <p>Esse é o painel onde você edita todo o seu curso</p>
+      <nuxt-link :to="`/visualizar-curso/${curso.id_curso}`">
+        <a-button type="primary">
+          Visualizar curso
+        </a-button>
+      </nuxt-link>
     </div>
 
     <div class="editar-curso__painel">
@@ -133,7 +138,7 @@
 <script>
 import CursoService from '~/service/curso/curso-service'
 export default {
-  name: 'MeusServicos',
+  name: 'EditarCurso',
   layout: 'logged',
   data () {
     return {

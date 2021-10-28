@@ -19,6 +19,15 @@ const CursoService = {
     }
   },
 
+  getAula: async (id) => {
+    try {
+      const res = await api.get(`/aulas/${id}`)
+      return res
+    } catch (err) {
+      return err
+    }
+  },
+
   cadastrarModulo: async (data) => {
     try {
       const res = await api.post('modulos', data)
