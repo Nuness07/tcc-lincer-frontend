@@ -4,9 +4,7 @@
       <div class="detalhes-servico__header">
         <h2>{{ projeto.nome_projeto }}</h2>
         <div class="detalhes-servico__header-infos">
-          <small
-            >Prazo de entrega: <span>{{ projeto.prazo }}</span></small
-          >
+          <small>Prazo de entrega: <span>{{ projeto.prazo }}</span></small>
           <small>Propostas: <span>0</span></small>
         </div>
       </div>
@@ -41,7 +39,7 @@
             <li><span>06</span> propostas</li>
           </ul>
 
-          <a-button v-if="projeto.aprovado" @click="showModal" type="primary">
+          <a-button v-if="projeto.aprovado" type="primary" @click="showModal">
             Ver propostas
           </a-button>
           <a-button v-else disabled type="primary">
@@ -51,7 +49,7 @@
       </div>
     </div>
 
-    <div class="infos__modal" v-if="showVideo">
+    <div v-if="showVideo" class="infos__modal">
       <div class="modal">
         <div class="modal__left">
           <div class="modal__header">
@@ -73,9 +71,9 @@
             <div class="modal__verificado">
               <p class="p-verificado">
                 <OutlineBadgeCheckIcon /> Perfil Verificado
-                <small v-if="propostas[propostaSelecionada].premium"
-                  >Premium</small
-                >
+                <small
+                  v-if="propostas[propostaSelecionada].premium"
+                >Premium</small>
               </p>
 
               <p
@@ -97,10 +95,6 @@
 
             <ul>
               <li>
-                Orçamento:
-                <span>{{ propostas[propostaSelecionada].orcamento }}</span>
-              </li>
-              <li>
                 Prazo previsto:
                 <span>{{ propostas[propostaSelecionada].prazo }}</span>
               </li>
@@ -108,20 +102,24 @@
                 Disponibilidade imediata:
                 <span>
                   <OutlineCheckIcon
-                    style="color: #2fcb5a"
                     v-if="
                       propostas[propostaSelecionada].disponibilidade_imediata
                     "
+                    style="color: #2fcb5a"
                   />
-                  <OutlineXIcon style="color: #fa3535" v-else />
+                  <OutlineXIcon v-else style="color: #fa3535" />
                 </span>
               </li>
             </ul>
           </div>
 
           <div class="modal__footer">
-            <a-button type="primary">Aceitar proposta</a-button>
-            <a-button @click="showVideo = false">Cancelar</a-button>
+            <a-button type="primary">
+              Aceitar proposta
+            </a-button>
+            <a-button @click="showVideo = false">
+              Cancelar
+            </a-button>
           </div>
         </div>
 
@@ -129,10 +127,10 @@
           <h3>Todas propostas</h3>
           <div class="propostas">
             <a
-              v-wave
-              class="proposta"
               v-for="(proposta, indexProposta) in propostas"
               :key="indexProposta + 'proposta'"
+              v-wave
+              class="proposta"
               @click.prevent="showProposta(proposta.id)"
             >
               <p class="p-nome"><OutlineUserIcon /> {{ proposta.nome }}</p>
@@ -147,7 +145,7 @@
           </div>
         </div>
       </div>
-      <button @click="showVideo = false" v-wave class="btn-close">
+      <button v-wave class="btn-close" @click="showVideo = false">
         <OutlineXIcon />
       </button>
     </div>
@@ -161,37 +159,37 @@ import propostas from "@/assets/json/propostas.json";
 export default {
   name: "ServiçosDetalhes",
   layout: "logged",
-  data() {
+  data () {
     return {
       projeto: null,
 
       showVideo: false,
 
-      propostas: propostas,
+      propostas,
 
       propostaSelecionada: 0,
     };
   },
   computed: {
-    outlineStar() {
+    outlineStar () {
       return 5 - this.propostas[this.propostaSelecionada].avaliacao;
     },
   },
-  mounted() {
+  mounted () {
     this.getProjeto();
   },
   methods: {
-    async getProjeto() {
+    async getProjeto () {
       this.projeto = await ProjetoService.getProjeto(this.$route.params.id);
       this.projeto = this.projeto.data;
       this.projeto.prazo = this.projeto.prazo.slice(0, 9).replaceAll("-", "/");
       this.projeto.habilidades_desejadas =
         this.projeto.habilidades_desejadas.split(",");
     },
-    showModal() {
+    showModal () {
       this.showVideo = true;
     },
-    showProposta(idProposta) {
+    showProposta (idProposta) {
       this.propostaSelecionada = idProposta - 1;
     },
   },

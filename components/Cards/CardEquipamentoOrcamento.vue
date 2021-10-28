@@ -16,13 +16,6 @@
           </p>
 
           <div class="card-equipamento__infos-ativado">
-            <p v-if="equipamento.ativo" class="detail-ativado ativo">
-              Ativo
-            </p>
-            <p v-else class="detail-ativado inativo">
-              Inativo
-            </p>
-
             <div v-if="equipamento.ativo" class="infos-ativo">
               <p>E-mail: {{ equipamento.alugado }}</p>
               <p>Whatsapp: {{ equipamento.telefone }}</p>
@@ -33,8 +26,8 @@
       </div>
     </div>
 
-    <nuxt-link class=" btn-detalhes ant-btn ant-btn-primary" to="/equipamentos/produto">
-      Ver detalhes
+    <nuxt-link class=" btn-detalhes ant-btn ant-btn-primary" to="orcamento-detalhes">
+      Ver detalhes do orçamento
     </nuxt-link>
   </div>
 </template>

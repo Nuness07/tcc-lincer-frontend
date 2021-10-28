@@ -4,12 +4,8 @@
       <h2>{{ servico.titulo }}</h2>
       <div class="detalhes-servico__header-infos">
         <small>Publicado: <span>há 4 horas</span></small>
-        <small
-          >Prazo de entrega: <span>{{ servico.data_entrega }}</span></small
-        >
-        <small
-          >Propostas: <span>{{ servico.propostas_recebidas }}</span></small
-        >
+        <small>Prazo de entrega: <span>{{ servico.data_entrega }}</span></small>
+        <small>Propostas: <span>{{ servico.propostas_recebidas }}</span></small>
       </div>
     </div>
 
@@ -27,9 +23,9 @@
 
         <div class="card-servicos__tags">
           <caption
-            class="card-servicos__tag"
             v-for="(habilidade, index) in servico.habilidades_desejadas"
             :key="index"
+            class="card-servicos__tag"
           >
             {{
               habilidade
@@ -79,42 +75,44 @@
           <li><span>08</span> freelances interessados</li>
         </ul>
 
-        <a-button @click="showModalProposta" type="primary"
-          >Enviar proposta</a-button
+        <a-button
+          type="primary"
+          @click="showModalProposta"
         >
+          Enviar proposta
+        </a-button>
       </div>
     </div>
 
-    <div class="infos__modal" v-if="showVideo">
+    <div v-if="showVideo" class="infos__modal">
       <div class="modal">
         <h3>Conte-nos mais sobre a proposta</h3>
 
         <div class="form-group">
           <label for="descricao">Descrição</label>
           <textarea
-            name="descricao"
-            v-model="descricao"
             id="descricao"
+            v-model="descricao"
+            name="descricao"
             maxlength="500"
-          ></textarea>
+          />
           <small>500 / {{ descricao.length }}</small>
         </div>
 
         <div class="form-group">
-          <label for="orcamento-previsto">Orçamento previsto</label>
-          <input type="text" name="orcamento-previsto" />
-        </div>
-
-        <div class="form-group">
           <label for="prazo-previsto">Prazo previsto</label>
-          <input type="text" name="prazo-previsto" />
+          <input type="text" name="prazo-previsto">
         </div>
 
-        <a-checkbox @change="onChange"> Disponibilidade imediata </a-checkbox>
+        <a-checkbox @change="onChange">
+          Disponibilidade imediata
+        </a-checkbox>
 
-        <a-button type="primary">Enviar proposta</a-button>
+        <a-button type="primary">
+          Enviar proposta
+        </a-button>
       </div>
-      <button @click="showVideo = false" v-wave class="btn-close">
+      <button v-wave class="btn-close" @click="showVideo = false">
         <OutlineXIcon />
       </button>
     </div>
@@ -132,30 +130,29 @@ export default {
       type: [String, Number],
     },
   },
-  data() {
+  data () {
     return {
-      servicos: servicos,
+      servicos,
 
       showVideo: false,
 
       descricao: "",
     };
   },
-  methods: {
-    showModalProposta() {
-      console.log("kalhsdbdf");
-      this.showVideo = true;
-    },
-    onChange(e) {
-      console.log(`checked = ${e.target.checked}`);
-    },
-  },
   computed: {
-    servico() {
-      let result = this.servicos.find((obj) => {
+    servico () {
+      const result = this.servicos.find((obj) => {
         return obj.id == this.id;
       });
       return result;
+    },
+  },
+  methods: {
+    showModalProposta () {
+      this.showVideo = true;
+    },
+    onChange (e) {
+      console.log(`checked = ${e.target.checked}`);
     },
   },
 };

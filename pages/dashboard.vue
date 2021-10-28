@@ -2,12 +2,22 @@
   <div class="dashboard-wrapper">
     <CircleLoading v-if="loading" style="margin: 0 auto" />
     <div v-else class="dashboard">
-      <div class="title">
-        <h2>Bem-Vindo</h2>
-        <p>{{ $auth.user.nome }} {{ $auth.user.sobrenome }}</p>
-        <p class="logout" @click="logout">
-          sair
-        </p>
+      <div class="title-wrapper">
+        <div class="title">
+          <h2>Bem-Vindo</h2>
+          <p>{{ $auth.user.nome }} {{ $auth.user.sobrenome }}</p>
+          <p class="logout" @click="logout">
+            sair
+          </p>
+        </div>
+        <div>
+          <h2 class="creditos-title">
+            Créditos Lincer
+          </h2>
+          <p class="creditos-money">
+            R$00,00
+          </p>
+        </div>
       </div>
 
       <div class="equipamentos-alugados">
@@ -15,11 +25,56 @@
           Equipamentos alugados
         </h2>
         <div class="equipamentos-alugados__box">
-          <p>Por enquanto você ainda não alugou nenhum equipamento</p>
+          <div v-if="$auth.user.email == 'contacompleta@gmail.com'">
+            <div class="card-equipamento__wrapper">
+              <div class="card-equipamento-item">
+                <h2>Canon EOS Rebel T7 Ef-S 18-55 F/3.5-5.6 Is II</h2>
+                <p class="marca">
+                  Canon
+                </p>
 
-          <nuxt-link to="/cursos" type="primary" class="btn-to-equipamentos">
-            Ver equipamentos
-          </nuxt-link>
+                <div class="infos">
+                  <p>R$ 20/mês</p>
+                  <p>Devolução: 30/10/20</p>
+                </div>
+
+                <a-button class="confirmar-entrega" @click="$vm2.open('confirmar-devolucao')">
+                  Confirmar devolução
+                </a-button>
+
+                <a-button class="entrar-em-contato">
+                  Entrar em contato
+                </a-button>
+              </div>
+              <div class="card-equipamento-item">
+                <h2>Microfone Profissional Samsung</h2>
+                <p class="marca">
+                  Samsung
+                </p>
+
+                <div class="infos">
+                  <p>R$ 12/mês</p>
+                  <p>Devolução: 30/10/20</p>
+                </div>
+
+                <a-button class="confirmar-entrega" @click="$vm2.open('confirmar-devolucao')">
+                  Confirmar devolução
+                </a-button>
+
+                <a-button class="entrar-em-contato">
+                  Entrar em contato
+                </a-button>
+              </div>
+            </div>
+          </div>
+
+          <div v-else style="display: flex; flex-direction: column;">
+            <p>Por enquanto você ainda não alugou nenhum equipamento</p>
+
+            <nuxt-link to="/cursos" type="primary" class="btn-to-equipamentos">
+              Ver equipamentos
+            </nuxt-link>
+          </div>
         </div>
       </div>
 
@@ -685,4 +740,84 @@ export default {
   text-transform: uppercase;
   cursor: pointer;
 }
+
+.card-equipamento__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+
+  .card-equipamento-item{
+    background: #FFF;
+    border-radius: 4px;
+    width: 350px;
+    padding: 20px;
+
+    h2{
+      font-size: 1.1rem !important;
+      color: $secondary-dark !important;
+      min-height: 60px;
+      margin-bottom: 0;
+    }
+
+    .marca{
+      font-size: 0.875rem;
+    }
+
+    .infos{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p{
+        font-size: 0.875rem;
+      }
+    }
+
+    .confirmar-entrega{
+      background: $alert-success;
+      color: #FFF;
+      width: 100%;
+      margin-top: 20px;
+      border: none;
+      transition: .3s transform;
+
+      &:hover{
+        transform: scale(1.05);
+      }
+    }
+
+    .entrar-em-contato{
+      border: none;
+      background: $primary-yellow;
+      color: #FFF;
+      width: 100%;
+      margin-top: 20px;
+      transition: .3s transform;
+
+      &:hover{
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .title-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .creditos-title{
+    font-size: 1.125rem;
+    color: $secondary-dark;
+    margin-bottom: 0;
+  }
+
+  .creditos-money{
+    font-size: 1.125rem;
+    color: $primary-yellow;
+    font-weight: 700;
+  }
 </style>

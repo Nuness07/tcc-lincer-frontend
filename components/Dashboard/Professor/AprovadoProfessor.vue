@@ -5,11 +5,6 @@
         <h2>Olá, {{ $auth.user.nome }}</h2>
         <p>Bem-vindo a sua plataforma de professor</p>
       </div>
-      <nuxt-link to="/servicos">
-        <a-button type="primary">
-          Adicionar meios de pagamento
-        </a-button>
-      </nuxt-link>
     </div>
 
     <div class="aprovado-freelancer__cards aprovadas">
@@ -42,6 +37,7 @@ export default {
   padding-bottom: 80px;
   margin-left: 36px;
   margin-top: 80px;
+  margin-right: 36px;
 
   @media (max-width: 1024px) {
     padding-bottom: 120px;

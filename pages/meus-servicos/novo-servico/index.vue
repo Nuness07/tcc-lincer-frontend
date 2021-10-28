@@ -86,8 +86,8 @@
           Seu projeto vai receber mais propostas de qualidade superior
         </p>
 
-        <a-button v-wave type="primary">
-          Ver premium
+        <a-button v-wave onclick="$increazyCheckoutPay('lincer-premium')" type="primary">
+          Vire premium
         </a-button>
       </div>
     </div>

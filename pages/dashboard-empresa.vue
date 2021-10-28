@@ -41,8 +41,8 @@
     <div class="dashboard-orcamentos">
       <h2>Orçamentos</h2>
       <div class="dashboard-content dashboard-content__cadastrados">
-        <div v-for="equipamento in equipamentos" :key="equipamento.id" class="equipamento-cadastrado">
-          <CardEquipamentoCadastrado :equipamento="equipamento" />
+        <div v-for="equipamento in equipamentosOrcamento" :key="equipamento.id" class="equipamento-cadastrado">
+          <CardEquipamentoOrcamento :equipamento="equipamento" />
         </div>
       </div>
     </div>
@@ -99,6 +99,18 @@ export default {
           alugado: 'brunopalotta@gmail.com',
           telefone: '(11) 97231-8452',
           prazo_aluguel: '3'
+        },
+      ],
+      equipamentosOrcamento: [
+        {
+          id: 1,
+          nome: 'Canon EOS Rebel T7 Ef-S 18-55 F/3.5-5.6 Is II',
+          categoria: 'Câmeras',
+          ativo: true,
+          fornecedor: 'Samsung',
+          alugado: 'contateste@gmail.com',
+          telefone: '(11) 97444-4444',
+          prazo_aluguel: '6'
         },
       ]
     }
